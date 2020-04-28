@@ -12,6 +12,7 @@
 		04AAB6A92456753E004640EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04AAB6A82456753E004640EF /* Assets.xcassets */; };
 		04AAB6AC2456753E004640EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AAB6AA2456753E004640EF /* LaunchScreen.storyboard */; };
 		04AAB6AF2456753E004640EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AAB6AE2456753E004640EF /* main.m */; };
+		04C8D86C245869C2002603DB /* icon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04C8D86B245869C2002603DB /* icon.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		04AAB6AB2456753E004640EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04AAB6AD2456753E004640EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04AAB6AE2456753E004640EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04C8D86B245869C2002603DB /* icon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = icon.bundle; path = SampleApp/icon.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		04AAB6902456753C004640EF = {
 			isa = PBXGroup;
 			children = (
+				04C8D86B245869C2002603DB /* icon.bundle */,
 				04AAB69B2456753C004640EF /* SampleApp */,
 				04AAB69A2456753C004640EF /* Products */,
 			);
@@ -125,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04C8D86C245869C2002603DB /* icon.bundle in Resources */,
 				04AAB6AC2456753E004640EF /* LaunchScreen.storyboard in Resources */,
 				04AAB6A92456753E004640EF /* Assets.xcassets in Resources */,
 			);
