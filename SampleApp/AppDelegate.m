@@ -18,7 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    /*self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
     
     UITabBarController *tabbarController = [[UITabBarController alloc] init];
 
@@ -44,12 +46,6 @@
     [tabbarController setViewControllers:@[controller1, controller2, controller3, controller4]];
     
     self.window.rootViewController = tabbarController;  // 显示最基本的tabbarController
-    [self.window makeKeyAndVisible];*/
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
-    
-    self.window.rootViewController = [[ViewController alloc] init];;
     
     [self.window makeKeyAndVisible];
     return YES;

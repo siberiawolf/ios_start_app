@@ -14,7 +14,8 @@
 
 @implementation TestView
 
-- (instancetype)init{   // 重载UIView初始化函数
+// 重载UIView初始化函数
+- (instancetype)init{
     self = [super init];
     if(self){
         
@@ -45,7 +46,28 @@
 
 @implementation ViewController
 
-  
+// 重载UIViewController初始化函数
+- (instancetype)init{
+  self = [super init];
+  if(self){
+      
+  }
+  return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear: animated];
+}
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewWillAppear: animated];
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillAppear: animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewWillAppear: animated];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
