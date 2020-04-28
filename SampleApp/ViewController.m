@@ -14,8 +14,7 @@
 
 @implementation TestView
 
-// 重载init函数
-- (instancetype)init{
+- (instancetype)init{   // 重载UIView初始化函数
     self = [super init];
     if(self){
         
@@ -24,6 +23,7 @@
 }
 
 // 四个主要的声明周期，这里直接调用内部的生命周期函数
+// 重载UIView的生命周期
 - (void)willMoveToSuperview:(nullable UIView *)newSuperview{
     [super willMoveToSuperview: newSuperview];
 }
@@ -44,6 +44,8 @@
 @end
 
 @implementation ViewController
+
+  
 
 - (void)viewDidLoad {
     [super viewDidLoad];
