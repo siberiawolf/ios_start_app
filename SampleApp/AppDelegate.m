@@ -23,15 +23,21 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     UITabBarController *tabbarController = [[UITabBarController alloc] init];
+    
+    // 之前自定义的ViewController
+    ViewController *viewController = [[ViewController alloc] init];
 
+    // 指定之前的viewController为navigationController
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    
     
     // 将ViewController添加到tabbarController中
     // 创建4个UIViewController
-    UIViewController *controller1 = [[UIViewController alloc] init];
-    controller1.view.backgroundColor = [UIColor redColor];
-    controller1.tabBarItem.title = @"新闻";
-    controller1.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/page@2x.png"];
-    controller1.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/page_selected@2x.png"];
+//    UIViewController *controller1 = [[UIViewController alloc] init];
+//    controller1.view.backgroundColor = [UIColor redColor];
+    navigationController.tabBarItem.title = @"新闻";
+    navigationController.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/page@2x.png"];
+    navigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/page_selected@2x.png"];
     
     UIViewController *controller2 = [[UIViewController alloc] init];
     controller2.view.backgroundColor = [UIColor yellowColor];
@@ -56,7 +62,7 @@
     
        
     // 将4个UIViewController添加到UITabBarController中
-    [tabbarController setViewControllers:@[controller2, controller1, controller3, controller4]];
+    [tabbarController setViewControllers:@[navigationController, controller2, controller3, controller4]];
     // 底部导航的顺序完全是由堆栈的顺序决定
     
     self.window.rootViewController = tabbarController;  // 显示最基本的tabbarController

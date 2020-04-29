@@ -86,7 +86,23 @@
     view2.frame = CGRectMake(150, 150, 100, 100);    // 宽高是100，距离屏幕也分别是100
 
     [self.view addSubview:view2];    // 添加视图到根视图
+    
+    // 建立一个手势
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushController)];
+    // 给视图view2添加建立的手势
+    [view2 addGestureRecognizer:tapGesture];
+        
 }
-
+// push一个NavigationController
+- (void)pushController{
+    
+    UIViewController *viewController = [[UIViewController alloc] init];
+    viewController.view.backgroundColor = [UIColor whiteColor];
+    viewController.navigationItem.title = @"内容";
+    viewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"右侧标题" style:UIBarButtonItemStylePlain target:self action:nil];
+    
+    
+    [self.navigationController pushViewController:viewController animated:YES];
+}
 
 @end
