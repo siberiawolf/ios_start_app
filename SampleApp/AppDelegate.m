@@ -19,6 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    // 这里使用自定义的UIWindow
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
@@ -66,8 +67,9 @@
     // 底部导航的顺序完全是由堆栈的顺序决定
     
     self.window.rootViewController = tabbarController;  // 显示最基本的tabbarController
+    [self.window makeKeyAndVisible]; // 让UIWindow显示出来
     
-    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
