@@ -28,17 +28,14 @@
     // 之前自定义的ViewController
     ViewController *viewController = [[ViewController alloc] init];
 
-    // 指定之前的viewController为navigationController
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    
-    
+
     // 将ViewController添加到tabbarController中
     // 创建4个UIViewController
 //    UIViewController *controller1 = [[UIViewController alloc] init];
 //    controller1.view.backgroundColor = [UIColor redColor];
-    navigationController.tabBarItem.title = @"新闻";
-    navigationController.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/page@2x.png"];
-    navigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/page_selected@2x.png"];
+    viewController.tabBarItem.title = @"新闻";
+    viewController.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/page@2x.png"];
+    viewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/page_selected@2x.png"];
     
     UIViewController *controller2 = [[UIViewController alloc] init];
     controller2.view.backgroundColor = [UIColor yellowColor];
@@ -59,17 +56,18 @@
     controller4.tabBarItem.title = @"我的";
     controller4.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/home@2x.png"];
     controller4.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/home_selected@2x.png"];
-
-    
        
     // 将4个UIViewController添加到UITabBarController中
-    [tabbarController setViewControllers:@[navigationController, controller2, controller3, controller4]];
+    [tabbarController setViewControllers:@[viewController, controller2, controller3, controller4]];
     // 底部导航的顺序完全是由堆栈的顺序决定
     
-    self.window.rootViewController = tabbarController;  // 显示最基本的tabbarController
+    // 指定之前的viewController为navigationController
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabbarController];
+        
+    // rootViewController设置为NavigationController，改变切换效果
+    self.window.rootViewController = navigationController;  // 显示最基本的tabbarController
     [self.window makeKeyAndVisible]; // 让UIWindow显示出来
-    
-    
+        
     return YES;
 }
 
