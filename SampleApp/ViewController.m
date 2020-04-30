@@ -115,7 +115,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];// 系统默认提供了四种内置的TableViewCell样式
     }
     
-    cell.textLabel.text = @"主标题";
+    cell.textLabel.text = [NSString stringWithFormat:@"主标题 - %@", @(indexPath.row)];
     cell.detailTextLabel.text = @"副标题";
     cell.imageView.image = [UIImage imageNamed:@"icon.bundle/video@2x.png"];
     return cell;
