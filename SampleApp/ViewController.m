@@ -108,8 +108,12 @@
 
 // 设置UITableViewCell 单元格
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    // 系统默认提供了四种内置的TableViewCell样式
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
+    
+    // 在屏幕中展示的Cell其实保持的数量比较少
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"]; // 通过系统Cell回收池中，根据 id 标识进行判断，然后复用Cell
+    if(!cell){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];// 系统默认提供了四种内置的TableViewCell样式
+    }
     
     cell.textLabel.text = @"主标题";
     cell.detailTextLabel.text = @"副标题";
