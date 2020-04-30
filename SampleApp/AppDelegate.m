@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<UITabBarControllerDelegate>   // 在UITabBarController中有声明
 
 @end
 
@@ -61,6 +61,9 @@
     [tabbarController setViewControllers:@[viewController, controller2, controller3, controller4]];
     // 底部导航的顺序完全是由堆栈的顺序决定
     
+    // 将当前这个类指定为tabbarController的delegate
+    tabbarController.delegate = self;
+    
     // 指定之前的viewController为navigationController
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabbarController];
         
@@ -69,6 +72,11 @@
     [self.window makeKeyAndVisible]; // 让UIWindow显示出来
         
     return YES;
+}
+
+// delegate需要实现的方法
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+    NSLog(@"did select delegate");
 }
 
 
