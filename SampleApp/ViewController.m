@@ -74,12 +74,17 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
+    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds]; // 创建一个UITablecView，大小与整个ViewController大小一致
+    
+    [self.view addSubview:tableView];
+    
 //    UIView *view = [[UIView alloc] init]; // 向内存申请分配地址，然后创建一个UIView
 //    view.backgroundColor = [UIColor redColor];  // 背景色是红色
 //    view.frame = CGRectMake(100, 100, 100, 100);    // 宽高是100，距离屏幕也分别是100
 //
 //    [self.view addSubview:view];    // 添加视图到根视图
     
+    /*  注释掉UINavigatorController
     // view2 这个视图是后入栈的，所以这个视图会在前面的视图上面展示
     TestView *view2 = [[TestView alloc] init]; // 向内存申请分配地址，然后创建一个UIView
     view2.backgroundColor = [UIColor greenColor];  // 背景色是红色
@@ -90,9 +95,10 @@
     // 建立一个手势
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushController)];
     // 给视图view2添加建立的手势
-    [view2 addGestureRecognizer:tapGesture];
+    [view2 addGestureRecognizer:tapGesture];*/
         
 }
+/*
 // push一个NavigationController
 - (void)pushController{
     
@@ -103,6 +109,6 @@
     
     
     [self.navigationController pushViewController:viewController animated:YES];
-}
+}*/
 
 @end
