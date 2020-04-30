@@ -40,7 +40,7 @@
 
 @end
 
-@interface ViewController ()
+@interface ViewController ()<UITableViewDataSource>
 
 @end
 
@@ -76,6 +76,8 @@
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds]; // 创建一个UITablecView，大小与整个ViewController大小一致
     
+    tableView.dataSource = self;
+    
     [self.view addSubview:tableView];
     
 //    UIView *view = [[UIView alloc] init]; // 向内存申请分配地址，然后创建一个UIView
@@ -98,6 +100,23 @@
     [view2 addGestureRecognizer:tapGesture];*/
         
 }
+
+// 返回整个UITableView的行数
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 20;
+}
+
+// 设置UITableViewCell 单元格
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    // 系统默认提供了四种内置的TableViewCell样式
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
+    
+    cell.textLabel.text = @"主标题";
+    cell.detailTextLabel.text = @"副标题";
+    cell.imageView.image = [UIImage imageNamed:@"icon.bundle/video@2x.png"];
+    return cell;
+}
+
 /*
 // push一个NavigationController
 - (void)pushController{
