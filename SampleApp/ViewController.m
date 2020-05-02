@@ -40,7 +40,7 @@
 
 @end
 
-@interface ViewController ()<UITableViewDataSource>
+@interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @end
 
@@ -77,6 +77,7 @@
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds]; // 创建一个UITablecView，大小与整个ViewController大小一致
     
     tableView.dataSource = self;
+    tableView.delegate = self;
     
     [self.view addSubview:tableView];
     
@@ -119,6 +120,24 @@
     cell.detailTextLabel.text = @"副标题";
     cell.imageView.image = [UIImage imageNamed:@"icon.bundle/video@2x.png"];
     return cell;
+}
+
+// 指定tableViewCell 高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 100;
+}
+
+// 点击Cell之后的事件函数
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UIViewController *viewController = [[UIViewController alloc] init];
+    
+    viewController.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
+    // ？？？列表点击后的动画效果还不是很顺滑？？？
+    // backgroundColor这个属性系统默认是nil 不设置其实展示的是UIWindow的颜色。
+    viewController.view.backgroundColor = [UIColor whiteColor];
+    
+    [self.navigationController pushViewController:viewController animated:YES];
+    
 }
 
 /*
