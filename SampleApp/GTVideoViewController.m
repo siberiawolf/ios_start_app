@@ -29,6 +29,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    flowLayout.minimumLineSpacing = 10;
+    flowLayout.minimumInteritemSpacing = 10;
+    flowLayout.itemSize = CGSizeMake((self.view.frame.size.width - 10) /2, 300);
     
     // 创建一个CollectionView需要的两个条件
     // 1. 需要制定一个大小
@@ -47,7 +50,7 @@
 
 // 返回cell个数
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 200;
+    return 20;
 }
 
 // 返回cell的样式
@@ -60,6 +63,15 @@
     // 这里没有指定cell的大小，系统默认大小为50*50
     
     return cell;
+}
+
+// 根据indexPath定制化item的Size大小
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.item % 3 ==0 ){
+        return CGSizeMake(self.view.frame.size.width, 300);
+    }else{
+        return CGSizeMake((self.view.frame.size.width - 10) /2, 300);
+    }
 }
 
 
