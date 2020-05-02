@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "GTVideoViewController.h"
+#import "GTRecommendViewController.h"
 
 @interface AppDelegate ()<UITabBarControllerDelegate>   // 在UITabBarController中有声明
 
@@ -38,17 +39,10 @@
     viewController.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/page@2x.png"];
     viewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/page_selected@2x.png"];
     
-    GTVideoViewController *videoController = [[GTVideoViewController alloc] init];
+    GTVideoViewController *videoController = [[GTVideoViewController alloc] init];  // 自定义流式布局
 
+    GTRecommendViewController *scrollView = [[GTRecommendViewController alloc] init]; // ScrollView
 
-
-    UIViewController *controller3 = [[UIViewController alloc] init];
-    controller3.view.backgroundColor = [UIColor greenColor];
-    controller3.tabBarItem.title = @"推荐";
-    controller3.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/like@2x.png"];
-    controller3.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/like_selected@2x.png"];
-
-    
     UIViewController *controller4 = [[UIViewController alloc] init];
     controller4.view.backgroundColor = [UIColor lightGrayColor];
     controller4.tabBarItem.title = @"我的";
@@ -56,7 +50,7 @@
     controller4.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/home_selected@2x.png"];
        
     // 将4个UIViewController添加到UITabBarController中
-    [tabbarController setViewControllers:@[viewController, videoController, controller3, controller4]];
+    [tabbarController setViewControllers:@[viewController, videoController, scrollView, controller4]];
     // 底部导航的顺序完全是由堆栈的顺序决定
     
     // 将当前这个类指定为tabbarController的delegate
