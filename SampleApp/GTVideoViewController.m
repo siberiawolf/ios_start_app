@@ -68,7 +68,7 @@
 // 根据indexPath定制化item的Size大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.item % 3 ==0 ){
-        return CGSizeMake(self.view.frame.size.width, 300);
+        return CGSizeMake(self.view.frame.size.width, 100);
     }else{
         return CGSizeMake((self.view.frame.size.width - 10) /2, 300);
     }
