@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0446D887245CF4B600E5AB19 /* GTVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0446D886245CF4B600E5AB19 /* GTVideoViewController.m */; };
 		04AAB69E2456753C004640EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AAB69D2456753C004640EF /* AppDelegate.m */; };
 		04AAB6A42456753C004640EF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AAB6A32456753C004640EF /* ViewController.m */; };
 		04AAB6A92456753E004640EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04AAB6A82456753E004640EF /* Assets.xcassets */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0446D885245CF4B600E5AB19 /* GTVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GTVideoViewController.h; path = SampleApp/GTVideoViewController.h; sourceTree = "<group>"; };
+		0446D886245CF4B600E5AB19 /* GTVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GTVideoViewController.m; path = SampleApp/GTVideoViewController.m; sourceTree = "<group>"; };
 		04AAB6992456753C004640EF /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04AAB69C2456753C004640EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04AAB69D2456753C004640EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -42,6 +45,8 @@
 		04AAB6902456753C004640EF = {
 			isa = PBXGroup;
 			children = (
+				0446D885245CF4B600E5AB19 /* GTVideoViewController.h */,
+				0446D886245CF4B600E5AB19 /* GTVideoViewController.m */,
 				04C8D86B245869C2002603DB /* icon.bundle */,
 				04AAB69B2456753C004640EF /* SampleApp */,
 				04AAB69A2456753C004640EF /* Products */,
@@ -144,6 +149,7 @@
 				04AAB6A42456753C004640EF /* ViewController.m in Sources */,
 				04AAB69E2456753C004640EF /* AppDelegate.m in Sources */,
 				04AAB6AF2456753E004640EF /* main.m in Sources */,
+				0446D887245CF4B600E5AB19 /* GTVideoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

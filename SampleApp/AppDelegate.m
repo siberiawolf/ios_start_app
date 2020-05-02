@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "GTVideoViewController.h"
 
 @interface AppDelegate ()<UITabBarControllerDelegate>   // 在UITabBarController中有声明
 
@@ -37,11 +38,8 @@
     viewController.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/page@2x.png"];
     viewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/page_selected@2x.png"];
     
-    UIViewController *controller2 = [[UIViewController alloc] init];
-    controller2.view.backgroundColor = [UIColor yellowColor];
-    controller2.tabBarItem.title = @"视频";
-    controller2.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/video@2x.png"];
-    controller2.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/video_selected@2x.png"];
+    GTVideoViewController *videoController = [[GTVideoViewController alloc] init];
+
 
 
     UIViewController *controller3 = [[UIViewController alloc] init];
@@ -58,7 +56,7 @@
     controller4.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/home_selected@2x.png"];
        
     // 将4个UIViewController添加到UITabBarController中
-    [tabbarController setViewControllers:@[viewController, controller2, controller3, controller4]];
+    [tabbarController setViewControllers:@[viewController, videoController, controller3, controller4]];
     // 底部导航的顺序完全是由堆栈的顺序决定
     
     // 将当前这个类指定为tabbarController的delegate
