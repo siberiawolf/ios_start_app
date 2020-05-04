@@ -8,7 +8,7 @@
 
 #import "GTRecommendViewController.h"
 
-@interface GTRecommendViewController ()
+@interface GTRecommendViewController ()<UIScrollViewDelegate>
 
 @end
 
@@ -33,7 +33,7 @@
     scrollView.backgroundColor = [UIColor lightGrayColor];
     scrollView.contentSize = CGSizeMake(self.view.bounds.size.width * 5, self.view.bounds.size.height); // 设置一个宽是5倍屏幕的ScrollView
     scrollView.showsHorizontalScrollIndicator = NO; // 禁止使用水平滚动条
-    
+    scrollView.delegate = self;
     NSArray *colorArray = @[[UIColor redColor],[UIColor blueColor],[UIColor greenColor],[UIColor grayColor],[UIColor lightGrayColor]];
     
     // 实现水平分页效果
@@ -50,6 +50,31 @@
     
 }
 
+// 当有任何scroll滚动时，都会触发这个函数
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//    NSLog(@"scrollViewDidScroll -  %@", @(scrollView.contentOffset.y));
+}
+
+// 开始拖拽
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    NSLog(@"BeginDrag");
+}
+
+
+// 结束拖拽
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    NSLog(@"EndDrag");
+}
+
+// 开始减速
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+    
+}
+
+// 结束减速
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    
+}
 
 
 @end

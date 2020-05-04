@@ -127,6 +127,12 @@
     return 100;
 }
 
+// 继承了父类的delegate
+// 证明UITableView继承了UIScrollView
+- (void) scrollViewDidScroll:(UIScrollView *)scrollView{
+    NSLog(@"scrollViewDidiScroll");
+}
+
 // 点击Cell之后的事件函数
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     UIViewController *viewController = [[UIViewController alloc] init];
