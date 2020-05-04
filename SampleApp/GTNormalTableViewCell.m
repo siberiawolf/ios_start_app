@@ -16,6 +16,7 @@
 @property(nonatomic, strong, readwrite) UILabel *commentLabel;
 @property(nonatomic, strong, readwrite) UILabel *timeLabel;
 @property(nonatomic, strong, readwrite) UIImageView *rightImageView;
+@property(nonatomic, strong, readwrite) UIButton *deleteButton;
 
 @end
 
@@ -26,6 +27,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if(self){
         
+        // 标题
         [self.contentView addSubview:({
             self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 15, 300, 50)] ;
             self.titleLabel.font = [UIFont systemFontOfSize:16];
@@ -33,22 +35,25 @@
             self.titleLabel;
         })];
         
+        // 来源
         [self.contentView addSubview:({
             self.sourceLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 80, 50, 20)] ;
             self.sourceLabel.font = [UIFont systemFontOfSize:12];
             self.sourceLabel.textColor= [UIColor grayColor];
-
+            
             self.sourceLabel;
         })];
         
+        // 评论
         [self.contentView addSubview:({
             self.commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 80, 50, 20)] ;
             self.commentLabel.font = [UIFont systemFontOfSize:12];
             self.commentLabel.textColor= [UIColor grayColor];
-
+            
             self.commentLabel;
         })];
         
+        // 时间
         [self.contentView addSubview:({
             self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 80, 50, 20)] ;
             self.timeLabel.font = [UIFont systemFontOfSize:12];
@@ -62,6 +67,15 @@
             self.rightImageView = [[UIImageView alloc] initWithFrame:CGRectMake(330, 15, 70, 70)] ;
             self.rightImageView.contentMode = UIViewContentModeScaleAspectFit;  // 自定义填充方式
             self.rightImageView;
+        })];
+        
+        // 删除按钮
+        [self.contentView addSubview:({
+            self.deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(290, 80, 30, 20)] ;
+            self.deleteButton.backgroundColor = [UIColor blueColor];
+            [self.deleteButton setTitle:@"X" forState:UIControlStateNormal];    // 正常显示时候的样式
+            [self.deleteButton setTitle:@"V" forState:UIControlStateHighlighted]; // 点击按住时候的样式
+            self.deleteButton;
         })];
         
     }
