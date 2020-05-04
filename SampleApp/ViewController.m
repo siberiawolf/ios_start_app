@@ -86,7 +86,7 @@
 // 继承了父类的delegate
 // 证明UITableView继承了UIScrollView
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView{
-    NSLog(@"scrollViewDidiScroll");
+//    NSLog(@"scrollViewDidiScroll");
 }
 
 // 点击Cell之后的事件函数

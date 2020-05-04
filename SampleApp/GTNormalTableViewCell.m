@@ -15,6 +15,7 @@
 @property(nonatomic, strong, readwrite) UILabel *sourceLabel;
 @property(nonatomic, strong, readwrite) UILabel *commentLabel;
 @property(nonatomic, strong, readwrite) UILabel *timeLabel;
+@property(nonatomic, strong, readwrite) UIImageView *rightImageView;
 
 @end
 
@@ -52,14 +53,22 @@
             self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 80, 50, 20)] ;
             self.timeLabel.font = [UIFont systemFontOfSize:12];
             self.timeLabel.textColor= [UIColor grayColor];
-
+            
             self.timeLabel;
+        })];
+        
+        // 右侧图片
+        [self.contentView addSubview:({
+            self.rightImageView = [[UIImageView alloc] initWithFrame:CGRectMake(330, 15, 70, 70)] ;
+            self.rightImageView.contentMode = UIViewContentModeScaleAspectFit;  // 自定义填充方式
+            self.rightImageView;
         })];
         
     }
     return self;
 }
 
+// 暴露一个函数，给外部使用
 - (void)layoutTableViewCell{
     self.titleLabel.text = @"极客时间iOS开发";
     
@@ -75,6 +84,8 @@
     // 距离评论最右边的位置加15
     self.timeLabel.frame = CGRectMake( self.commentLabel.frame.origin.x +  self.commentLabel.frame.size.width + 15,  self.timeLabel.frame.origin.y, self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
     [self.timeLabel sizeToFit];
+    
+    self.rightImageView.image = [UIImage imageNamed:@"icon.bundle/icon.png"];
 }
 
 @end
