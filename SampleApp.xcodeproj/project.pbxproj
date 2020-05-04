@@ -14,6 +14,7 @@
 		04AAB6A92456753E004640EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04AAB6A82456753E004640EF /* Assets.xcassets */; };
 		04AAB6AC2456753E004640EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AAB6AA2456753E004640EF /* LaunchScreen.storyboard */; };
 		04AAB6AF2456753E004640EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AAB6AE2456753E004640EF /* main.m */; };
+		04B0D1EC245FB6F00010D679 /* GTNormalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B0D1EB245FB6F00010D679 /* GTNormalTableViewCell.m */; };
 		04C8D86C245869C2002603DB /* icon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04C8D86B245869C2002603DB /* icon.bundle */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,8 @@
 		04AAB6AB2456753E004640EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04AAB6AD2456753E004640EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04AAB6AE2456753E004640EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04B0D1EA245FB6F00010D679 /* GTNormalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNormalTableViewCell.h; sourceTree = "<group>"; };
+		04B0D1EB245FB6F00010D679 /* GTNormalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNormalTableViewCell.m; sourceTree = "<group>"; };
 		04C8D86B245869C2002603DB /* icon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = icon.bundle; path = SampleApp/icon.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +76,8 @@
 				0468C88F245D72980033F219 /* GTRecommendViewController.m */,
 				04AAB6A22456753C004640EF /* ViewController.h */,
 				04AAB6A32456753C004640EF /* ViewController.m */,
+				04B0D1EA245FB6F00010D679 /* GTNormalTableViewCell.h */,
+				04B0D1EB245FB6F00010D679 /* GTNormalTableViewCell.m */,
 				04AAB6A82456753E004640EF /* Assets.xcassets */,
 				04AAB6AA2456753E004640EF /* LaunchScreen.storyboard */,
 				04AAB6AD2456753E004640EF /* Info.plist */,
@@ -154,6 +159,7 @@
 				04AAB6A42456753C004640EF /* ViewController.m in Sources */,
 				04AAB69E2456753C004640EF /* AppDelegate.m in Sources */,
 				04AAB6AF2456753E004640EF /* main.m in Sources */,
+				04B0D1EC245FB6F00010D679 /* GTNormalTableViewCell.m in Sources */,
 				0468C890245D72980033F219 /* GTRecommendViewController.m in Sources */,
 				0446D887245CF4B600E5AB19 /* GTVideoViewController.m in Sources */,
 			);

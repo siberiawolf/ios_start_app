@@ -7,38 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "GTNormalTableViewCell.h"
 
-@interface TestView : UIView
-
-@end
-
-@implementation TestView
-
-// 重载UIView初始化函数
-- (instancetype)init{
-    self = [super init];
-    if(self){
-        
-    }
-    return self;
-}
-
-// 四个主要的声明周期，这里直接调用内部的生命周期函数
-// 重载UIView的生命周期
-- (void)willMoveToSuperview:(nullable UIView *)newSuperview{
-    [super willMoveToSuperview: newSuperview];
-}
-- (void)didMoveToSuperview{
-    [super didMoveToSuperview];
-}
-- (void)willMoveToWindow:(nullable UIWindow *)newWindow{
-    [super willMoveToWindow:newWindow];
-}
-- (void)didMoveToWindow{
-    [super didMoveToWindow];
-}
-
-@end
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -55,19 +25,6 @@
   return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear: animated];
-}
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewWillAppear: animated];
-}
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillAppear: animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated{
-    [super viewWillAppear: animated];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -111,14 +68,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     // 在屏幕中展示的Cell其实保持的数量比较少
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"]; // 通过系统Cell回收池中，根据 id 标识进行判断，然后复用Cell
+    GTNormalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"]; // 通过系统Cell回收池中，根据 id 标识进行判断，然后复用Cell
     if(!cell){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];// 系统默认提供了四种内置的TableViewCell样式
+        cell = [[GTNormalTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];// 系统默认提供了四种内置的TableViewCell样式
     }
+
+    [cell layoutTableViewCell];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"主标题 - %@", @(indexPath.row)];
-    cell.detailTextLabel.text = @"副标题";
-    cell.imageView.image = [UIImage imageNamed:@"icon.bundle/video@2x.png"];
     return cell;
 }
 
