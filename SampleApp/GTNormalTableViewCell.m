@@ -73,8 +73,11 @@
         [self.contentView addSubview:({
             self.deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(290, 80, 30, 20)] ;
             self.deleteButton.backgroundColor = [UIColor blueColor];
-            [self.deleteButton setTitle:@"X" forState:UIControlStateNormal];    // 正常显示时候的样式
-            [self.deleteButton setTitle:@"V" forState:UIControlStateHighlighted]; // 点击按住时候的样式
+            [self.deleteButton setTitle:@"X" forState:UIControlStateNormal];    // 正常显示时候的样式（系统自带）
+            [self.deleteButton setTitle:@"V" forState:UIControlStateHighlighted]; // 点击按住时候的样式（系统自带）
+            // UIControl以及Target-Action模式
+            // 添加自定义点击事件
+            [self.deleteButton addTarget:self action:@selector(deleteButtonClick) forControlEvents:UIControlEventTouchUpInside];
             self.deleteButton;
         })];
         
@@ -100,6 +103,11 @@
     [self.timeLabel sizeToFit];
     
     self.rightImageView.image = [UIImage imageNamed:@"icon.bundle/icon.png"];
+}
+
+// 点击时触发函数
+- (void)deleteButtonClick{
+    NSLog(@"deleteButtonClick");
 }
 
 @end
