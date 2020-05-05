@@ -8,7 +8,7 @@
 
 #import "GTRecommendViewController.h"
 
-@interface GTRecommendViewController ()<UIScrollViewDelegate>
+@interface GTRecommendViewController ()<UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
 @end
 
@@ -38,16 +38,44 @@
     
     // 实现水平分页效果
     scrollView.pagingEnabled = YES;
+    // ???为什么我点击黄色的UIView时view会向上动???
+    // 设置了pagingEnabled，系统会自动的处理offset来实现分页的效果。
+    // 垂直方向，这种自动处理在滑动时会导致之前变化的offset回滚到0，所以就有了上移。
+    // ***在开发过程中的frame布局的项目中，所有的scrollView也都建议设置这个属性。***
+    scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     for (int i = 0; i < 5; i++) {
         [scrollView addSubview:({
             UIView *view = [[UIView alloc] initWithFrame:CGRectMake(scrollView.bounds.size.width * i, 0, scrollView.bounds.size.width, scrollView.bounds.size.height)];
+            
+            [view addSubview:({
+                UIView *view = [[UIView alloc] initWithFrame:CGRectMake(100, 200, 100, 100)];
+                view.backgroundColor = [UIColor yellowColor];
+                // 注册tap监听事件
+                UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewClick)];
+                tapGesture.delegate = self;
+                // 将tap事件添加给view
+                [view addGestureRecognizer:tapGesture];
+                view;
+            })];
+            
             view.backgroundColor = [colorArray objectAtIndex:i]; 
             view;
         })];
     }
     
     [self.view addSubview:scrollView];
-    
+    	
+}
+
+// 自定义点击事件
+- (void)viewClick{
+    NSLog(@"viewClick");
+}
+
+// 是否需要响应手势函数
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+//    return NO;  // 禁用手势响应事件
+    return YES;
 }
 
 // 当有任何scroll滚动时，都会触发这个函数
