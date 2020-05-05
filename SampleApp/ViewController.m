@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "GTNormalTableViewCell.h"
+#import "GTDetailViewController.h"
 
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -91,7 +92,7 @@
 
 // 点击Cell之后的事件函数
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UIViewController *viewController = [[UIViewController alloc] init];
+    GTDetailViewController *viewController = [[GTDetailViewController alloc] init];
     
     viewController.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
     // ？？？列表点击后的动画效果还不是很顺滑？？？
