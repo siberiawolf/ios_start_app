@@ -11,6 +11,7 @@
 
 @interface GTDetailViewController ()<WKNavigationDelegate>
 @property (nonatomic, strong, readwrite) WKWebView *webView;
+@property (nonatomic, strong, readwrite) UIProgressView *progressView;
 
 @end
 
@@ -25,8 +26,21 @@
         self.webView;
     })];
     
+    // webView加载进度条
+    [self.view addSubview:({
+        self.progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, 20)];
+        self.progressView;
+    })];
+    
     // 加载极客时间的网址
     [self.webView loadRequest: [NSURLRequest requestWithURL: [NSURL URLWithString:@"https://time.geekbang.org/"]]];
+    
+    // 监听：self.webview
+    // 监听者： self
+    // 监听属性：estimatedProgress
+    // 监听状态：NSKeyValueObservingOptionNew 有新的的变化时
+    // 不需要传参：nil
+    [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 // 是否允许加载
@@ -37,6 +51,20 @@
 // webView加载结束
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation{
     NSLog(@"webView加载结束");
+}
+// 移除监听
+-(void) dealloc{
+    [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
+
+}
+
+// 监听者回调
+- (void)observeValueForKeyPath:(nullable NSString *)keyPath ofObject:(nullable id)object change:(nullable NSDictionary<NSKeyValueChangeKey, id> *)change context:(nullable void *)context{
+    
+    // 设置webView进度条状态给progressView
+    self.progressView.progress = self.webView.estimatedProgress;
+    
+    NSLog(@"observeValueForKeyPath");
 }
 
 @end
