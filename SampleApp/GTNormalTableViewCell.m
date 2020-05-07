@@ -107,7 +107,12 @@
 
 // 点击时触发函数
 - (void)deleteButtonClick{
-    NSLog(@"deleteButtonClick");
+    // 因为自定义delegate函数没有使用require声明为必须
+    // 如果有delegate并且实现了删除button函数
+    if(self.delegate && [self.delegate respondsToSelector:@selector(tableViewCell:clickDeleteButton:)]){
+        // 执行代理
+        [self.delegate tableViewCell:self clickDeleteButton:self.deleteButton];
+    }
 }
 
 @end

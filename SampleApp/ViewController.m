@@ -9,10 +9,12 @@
 #import "ViewController.h"
 #import "GTNormalTableViewCell.h"
 #import "GTDetailViewController.h"
+#import "GTDeleteCellView.h"
 
 
-@interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
-
+@interface ViewController ()<UITableViewDataSource,UITableViewDelegate,GTNormalTableViewCellDelegate>
+@property (nonatomic, strong, readwrite) UITableView *tableView;
+@property (nonatomic, strong, readwrite) NSMutableArray *dataArray;
 @end
 
 @implementation ViewController
@@ -21,7 +23,10 @@
 - (instancetype)init{
   self = [super init];
   if(self){
-      
+      _dataArray = @[].mutableCopy;
+      for (int i = 0; i < 20; i++) {
+          [_dataArray addObject:@(i) ];
+      }
   }
   return self;
 }
@@ -32,12 +37,12 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds]; // 创建一个UITablecView，大小与整个ViewController大小一致
+    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds]; // 创建一个UITablecView，大小与整个ViewController大小一致
     
-    tableView.dataSource = self;
-    tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
     
-    [self.view addSubview:tableView];
+    [self.view addSubview:_tableView];
     
 //    UIView *view = [[UIView alloc] init]; // 向内存申请分配地址，然后创建一个UIView
 //    view.backgroundColor = [UIColor redColor];  // 背景色是红色
@@ -62,7 +67,7 @@
 
 // 返回整个UITableView的行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 20;
+    return _dataArray.count;    // 根据数组个数创建
 }
 
 // 设置UITableViewCell 单元格
@@ -72,6 +77,8 @@
     GTNormalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"]; // 通过系统Cell回收池中，根据 id 标识进行判断，然后复用Cell
     if(!cell){
         cell = [[GTNormalTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];// 系统默认提供了四种内置的TableViewCell样式
+        
+        cell.delegate = self; // 使用自定义声明的delegate
     }
 
     [cell layoutTableViewCell];
@@ -102,6 +109,29 @@
     [self.navigationController pushViewController:viewController animated:YES];
     
 }
+
+- (void)tableViewCell:(UITableViewCell *)tableViewCell clickDeleteButton:(UIButton *)deleteButton{
+    GTDeleteCellView *deleteView = [[GTDeleteCellView alloc] initWithFrame:self.view.bounds];
+    
+    // 将deleteCellView 的坐标转换到window的坐标中。
+    CGRect rect = [tableViewCell convertRect:deleteButton.frame toView:nil];
+    
+    //处理循环引用
+    __weak typeof (self) wself = self;
+    
+    [deleteView showDeleteViewFromPoint:rect.origin clicBlock:^{
+        __strong typeof (self) strongSelf = wself;
+        
+        // 删除最后一个
+        [strongSelf.dataArray removeLastObject];
+        
+        // 根据table的indexPath 删除tableView
+        // 使用系统自动添加的动画效果
+        [strongSelf.tableView deleteRowsAtIndexPaths:@[[strongSelf.tableView indexPathForCell:tableViewCell]] withRowAnimation: UITableViewRowAnimationAutomatic];
+        
+    }];
+}
+
 
 /*
 // push一个NavigationController
