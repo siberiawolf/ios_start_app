@@ -68,6 +68,10 @@
 		049BFBE824655EF000C2A9AF /* list */ = {
 			isa = PBXGroup;
 			children = (
+				04B0D1EA245FB6F00010D679 /* GTNormalTableViewCell.h */,
+				04B0D1EB245FB6F00010D679 /* GTNormalTableViewCell.m */,
+				04705E8B2463E25800E4F31D /* GTDeleteCellView.h */,
+				04705E8C2463E25800E4F31D /* GTDeleteCellView.m */,
 			);
 			path = list;
 			sourceTree = "<group>";
@@ -75,10 +79,6 @@
 		049BFBE924655EFB00C2A9AF /* detail */ = {
 			isa = PBXGroup;
 			children = (
-				04B0D1EA245FB6F00010D679 /* GTNormalTableViewCell.h */,
-				04B0D1EB245FB6F00010D679 /* GTNormalTableViewCell.m */,
-				04705E8B2463E25800E4F31D /* GTDeleteCellView.h */,
-				04705E8C2463E25800E4F31D /* GTDeleteCellView.m */,
 				0499C7C7246115D40079E82B /* GTDetailViewController.h */,
 				0499C7C8246115D40079E82B /* GTDetailViewController.m */,
 			);
