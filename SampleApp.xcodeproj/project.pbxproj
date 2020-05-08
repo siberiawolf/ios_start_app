@@ -21,8 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0446D885245CF4B600E5AB19 /* GTVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GTVideoViewController.h; path = SampleApp/GTVideoViewController.h; sourceTree = "<group>"; };
-		0446D886245CF4B600E5AB19 /* GTVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GTVideoViewController.m; path = SampleApp/GTVideoViewController.m; sourceTree = "<group>"; };
+		0446D885245CF4B600E5AB19 /* GTVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoViewController.h; sourceTree = "<group>"; };
+		0446D886245CF4B600E5AB19 /* GTVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoViewController.m; sourceTree = "<group>"; };
 		0468C88E245D72980033F219 /* GTRecommendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTRecommendViewController.h; sourceTree = "<group>"; };
 		0468C88F245D72980033F219 /* GTRecommendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTRecommendViewController.m; sourceTree = "<group>"; };
 		04705E8B2463E25800E4F31D /* GTDeleteCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTDeleteCellView.h; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 		04AAB6AE2456753E004640EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04B0D1EA245FB6F00010D679 /* GTNormalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNormalTableViewCell.h; sourceTree = "<group>"; };
 		04B0D1EB245FB6F00010D679 /* GTNormalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNormalTableViewCell.m; sourceTree = "<group>"; };
-		04C8D86B245869C2002603DB /* icon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = icon.bundle; path = SampleApp/icon.bundle; sourceTree = "<group>"; };
+		04C8D86B245869C2002603DB /* icon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = icon.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +54,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		049BFBE724655E7800C2A9AF /* NewsController */ = {
+			isa = PBXGroup;
+			children = (
+				049BFBE924655EFB00C2A9AF /* detail */,
+				049BFBE824655EF000C2A9AF /* list */,
+				04AAB6A22456753C004640EF /* GTNewsViewController.h */,
+				04AAB6A32456753C004640EF /* GTNewsViewController.m */,
+			);
+			path = NewsController;
+			sourceTree = "<group>";
+		};
+		049BFBE824655EF000C2A9AF /* list */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = list;
+			sourceTree = "<group>";
+		};
+		049BFBE924655EFB00C2A9AF /* detail */ = {
+			isa = PBXGroup;
+			children = (
+				04B0D1EA245FB6F00010D679 /* GTNormalTableViewCell.h */,
+				04B0D1EB245FB6F00010D679 /* GTNormalTableViewCell.m */,
+				04705E8B2463E25800E4F31D /* GTDeleteCellView.h */,
+				04705E8C2463E25800E4F31D /* GTDeleteCellView.m */,
+				0499C7C7246115D40079E82B /* GTDetailViewController.h */,
+				0499C7C8246115D40079E82B /* GTDetailViewController.m */,
+			);
+			path = detail;
+			sourceTree = "<group>";
+		};
 		04AAB6902456753C004640EF = {
 			isa = PBXGroup;
 			children = (
-				0446D885245CF4B600E5AB19 /* GTVideoViewController.h */,
-				0446D886245CF4B600E5AB19 /* GTVideoViewController.m */,
-				04C8D86B245869C2002603DB /* icon.bundle */,
 				04AAB69B2456753C004640EF /* SampleApp */,
 				04AAB69A2456753C004640EF /* Products */,
 			);
@@ -76,18 +104,14 @@
 		04AAB69B2456753C004640EF /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
-				04705E8B2463E25800E4F31D /* GTDeleteCellView.h */,
-				04705E8C2463E25800E4F31D /* GTDeleteCellView.m */,
+				04C8D86B245869C2002603DB /* icon.bundle */,
+				049BFBE724655E7800C2A9AF /* NewsController */,
 				04AAB69C2456753C004640EF /* AppDelegate.h */,
 				04AAB69D2456753C004640EF /* AppDelegate.m */,
+				0446D885245CF4B600E5AB19 /* GTVideoViewController.h */,
+				0446D886245CF4B600E5AB19 /* GTVideoViewController.m */,
 				0468C88E245D72980033F219 /* GTRecommendViewController.h */,
 				0468C88F245D72980033F219 /* GTRecommendViewController.m */,
-				0499C7C7246115D40079E82B /* GTDetailViewController.h */,
-				0499C7C8246115D40079E82B /* GTDetailViewController.m */,
-				04AAB6A22456753C004640EF /* GTNewsViewController.h */,
-				04AAB6A32456753C004640EF /* GTNewsViewController.m */,
-				04B0D1EA245FB6F00010D679 /* GTNormalTableViewCell.h */,
-				04B0D1EB245FB6F00010D679 /* GTNormalTableViewCell.m */,
 				04AAB6A82456753E004640EF /* Assets.xcassets */,
 				04AAB6AA2456753E004640EF /* LaunchScreen.storyboard */,
 				04AAB6AD2456753E004640EF /* Info.plist */,
