@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  GTNewsViewController.h
 //  SampleApp
 //
 //  Created by mac on 2020/4/27.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface GTNewsViewController : UIViewController
 
 
 @end

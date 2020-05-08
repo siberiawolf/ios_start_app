@@ -78,6 +78,15 @@
             // UIControl以及Target-Action模式
             // 添加自定义点击事件
             [self.deleteButton addTarget:self action:@selector(deleteButtonClick) forControlEvents:UIControlEventTouchUpInside];
+            
+            // CALayer创建边框圆角的应用
+            // 给按钮添加圆角边框
+            self.deleteButton.layer.cornerRadius = 10;  // 设置圆角为高度的一半
+            self.deleteButton.layer.masksToBounds = YES;
+            
+            self.deleteButton.layer.borderColor = [UIColor lightGrayColor].CGColor; // 边框颜色
+            self.deleteButton.layer.borderWidth = 2;    // 边框粗细
+            
             self.deleteButton;
         })];
         

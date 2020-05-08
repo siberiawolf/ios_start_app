@@ -19,6 +19,8 @@
 
 @implementation GTNewsViewController
 
+#pragma mark - lefe cycle
+
 // 重载UIViewController初始化函数
 - (instancetype)init{
   self = [super init];
@@ -65,6 +67,8 @@
         
 }
 
+#pragma mark - UITableViewDelegate
+
 // 返回整个UITableView的行数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _dataArray.count;    // 根据数组个数创建
@@ -85,6 +89,7 @@
     
     return cell;
 }
+
 
 // 指定tableViewCell 高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
