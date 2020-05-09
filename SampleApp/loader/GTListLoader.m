@@ -15,7 +15,21 @@
     NSString *urlString = @"http://v.juhe.cn/toutiao/index?type=top&key=97ad001bfcc2082e2eeaf798bad3d54e";
     NSURL *listURL = [NSURL URLWithString:urlString];
     
-    __unused NSURLRequest *listRequest = [NSURLRequest requestWithURL:listURL];
+    
+    
+    // 使用系统自带的sharedSession创建一个session
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+//     dataTask属于session；同时封装了listRequest
+//    __unused NSURLRequest *listRequest = [NSURLRequest requestWithURL:listURL];
+//    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:listRequest];
+    
+//    通过Handler block处理response
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:listURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSLog(@"请求成功");
+    }];
+    
+    [dataTask resume]; // 恢复task(执行task)
     
     NSLog(@"");
     
