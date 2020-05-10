@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0439CB14246794150001F173 /* GTListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0439CB13246794150001F173 /* GTListItem.m */; };
 		0446D887245CF4B600E5AB19 /* GTVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0446D886245CF4B600E5AB19 /* GTVideoViewController.m */; };
 		0452A91F24662FA800FDFCBD /* GTListLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452A91E24662FA800FDFCBD /* GTListLoader.m */; };
 		0468C890245D72980033F219 /* GTRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468C88F245D72980033F219 /* GTRecommendViewController.m */; };
@@ -23,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0439CB12246794150001F173 /* GTListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTListItem.h; sourceTree = "<group>"; };
+		0439CB13246794150001F173 /* GTListItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTListItem.m; sourceTree = "<group>"; };
 		0446D885245CF4B600E5AB19 /* GTVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoViewController.h; sourceTree = "<group>"; };
 		0446D886245CF4B600E5AB19 /* GTVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoViewController.m; sourceTree = "<group>"; };
 		0452A91D24662FA800FDFCBD /* GTListLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTListLoader.h; sourceTree = "<group>"; };
@@ -67,6 +70,8 @@
 			children = (
 				0452A91D24662FA800FDFCBD /* GTListLoader.h */,
 				0452A91E24662FA800FDFCBD /* GTListLoader.m */,
+				0439CB12246794150001F173 /* GTListItem.h */,
+				0439CB13246794150001F173 /* GTListItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 				04AAB6A42456753C004640EF /* GTNewsViewController.m in Sources */,
 				04AAB69E2456753C004640EF /* AppDelegate.m in Sources */,
 				04AAB6AF2456753E004640EF /* main.m in Sources */,
+				0439CB14246794150001F173 /* GTListItem.m in Sources */,
 				04B0D1EC245FB6F00010D679 /* GTNormalTableViewCell.m in Sources */,
 				0452A91F24662FA800FDFCBD /* GTListLoader.m in Sources */,
 				0499C7C9246115D40079E82B /* GTDetailViewController.m in Sources */,

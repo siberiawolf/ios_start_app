@@ -7,7 +7,9 @@
 //
 
 #import "GTListLoader.h"
+#import "GTListItem.h"
 #import <AFNetworking.h>
+
 
 @implementation GTListLoader
 
@@ -40,6 +42,15 @@
         
         NSError *jsonError;
         id jsonObj = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+        
+#warning 类型判断检查
+        NSArray *dataArray = [((NSDictionary *)[((NSDictionary *)jsonObj) objectForKey:@"result"]) objectForKey:@"data"];
+        NSMutableArray *listItemArray = @[].mutableCopy;
+        for (NSDictionary *info in dataArray) {
+            GTListItem *listItem = [[GTListItem alloc] init];
+            [listItem configWithDictonary:info];
+            [listItemArray addObject:listItem];
+        }
         
         NSLog(@"请求成功");
     }];
