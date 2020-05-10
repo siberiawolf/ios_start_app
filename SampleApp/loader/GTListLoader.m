@@ -26,7 +26,7 @@
     
 //    通过Handler block处理response
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:listURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSLog(@"请求成功");
+        NSLog(@"请求成功"); 
     }];
     
     [dataTask resume]; // 恢复task(执行task)
