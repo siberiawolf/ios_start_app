@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -62,27 +62,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0452A91C24662F7900FDFCBD /* loader */ = {
+		0439CB10246793480001F173 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				0452A91D24662FA800FDFCBD /* GTListLoader.h */,
 				0452A91E24662FA800FDFCBD /* GTListLoader.m */,
 			);
-			path = loader;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		049BFBE724655E7800C2A9AF /* NewsController */ = {
-			isa = PBXGroup;
-			children = (
-				049BFBE924655EFB00C2A9AF /* detail */,
-				049BFBE824655EF000C2A9AF /* list */,
-				04AAB6A22456753C004640EF /* GTNewsViewController.h */,
-				04AAB6A32456753C004640EF /* GTNewsViewController.m */,
-			);
-			path = NewsController;
-			sourceTree = "<group>";
-		};
-		049BFBE824655EF000C2A9AF /* list */ = {
+		0439CB11246793680001F173 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				04B0D1EA245FB6F00010D679 /* GTNormalTableViewCell.h */,
@@ -90,7 +79,27 @@
 				04705E8B2463E25800E4F31D /* GTDeleteCellView.h */,
 				04705E8C2463E25800E4F31D /* GTDeleteCellView.m */,
 			);
-			path = list;
+			path = View;
+			sourceTree = "<group>";
+		};
+		049BFBE724655E7800C2A9AF /* NewsController */ = {
+			isa = PBXGroup;
+			children = (
+				0439CB10246793480001F173 /* Model */,
+				0439CB11246793680001F173 /* View */,
+				049BFBE824655EF000C2A9AF /* Controller */,
+				049BFBE924655EFB00C2A9AF /* detail */,
+			);
+			path = NewsController;
+			sourceTree = "<group>";
+		};
+		049BFBE824655EF000C2A9AF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04AAB6A22456753C004640EF /* GTNewsViewController.h */,
+				04AAB6A32456753C004640EF /* GTNewsViewController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		049BFBE924655EFB00C2A9AF /* detail */ = {
@@ -123,7 +132,6 @@
 		04AAB69B2456753C004640EF /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
-				0452A91C24662F7900FDFCBD /* loader */,
 				04C8D86B245869C2002603DB /* icon.bundle */,
 				049BFBE724655E7800C2A9AF /* NewsController */,
 				04AAB69C2456753C004640EF /* AppDelegate.h */,
@@ -154,7 +162,6 @@
 				67223380B97185AAD35DF827 /* Pods-SampleApp.debug.xcconfig */,
 				52C76E7660730CA283F718AC /* Pods-SampleApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
