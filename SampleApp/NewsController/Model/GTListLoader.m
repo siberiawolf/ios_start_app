@@ -10,11 +10,9 @@
 #import "GTListItem.h"
 #import <AFNetworking.h>
 
-
 @implementation GTListLoader
 
-- (void)loadListData {
-    
+- (void)loadListDataWithFinishBlock:(GTListLoaderFinishBlock)finishBlock {
 //    使用AFNetworking 处理网络请求
 //    [[AFHTTPSessionManager manager] GET:@"https://static001.geekbang.org/univer/classes/ios_dev/lession/45/toutiao.json" parameters:nil headers:nil progress:^(NSProgress *_Nonnull downloadProgress) {
 //        NSLog(@"AFNetworking  进度条");
@@ -23,7 +21,7 @@
 //    } failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
 //        NSLog(@"AFNetworking 请求失败");
 //    }];
-    
+
 //    使用系统自带的方式处理网络请求
 
     NSString *urlString = @"https://static001.geekbang.org/univer/classes/ios_dev/lession/45/toutiao.json";
@@ -39,25 +37,27 @@
 
 //    通过Handler block处理response
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:listURL completionHandler:^(NSData *_Nullable data, NSURLResponse *_Nullable response, NSError *_Nullable error) {
-        
         NSError *jsonError;
         id jsonObj = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
-        
+
 #warning 类型判断检查
         NSArray *dataArray = [((NSDictionary *)[((NSDictionary *)jsonObj) objectForKey:@"result"]) objectForKey:@"data"];
-        NSMutableArray *listItemArray = @[].mutableCopy;
+        NSMutableArray *listItemArray = @[].mutableCopy;    // 已经结构化的数组
         for (NSDictionary *info in dataArray) {
             GTListItem *listItem = [[GTListItem alloc] init];
             [listItem configWithDictonary:info];
             [listItemArray addObject:listItem];
         }
-        
-        NSLog(@"请求成功");
+
+//        期望所有的回包都是在主线程中进行
+        dispatch_async(dispatch_get_main_queue(), ^{
+                           if (finishBlock) {
+                               //             当没有错误返回时，参数为TRUE
+                               finishBlock(error == nil, listItemArray.copy);
+                           }
+                       });
     }];
-
     [dataTask resume]; // 恢复task(执行task)
-
-    NSLog(@"");
 }
 
 @end

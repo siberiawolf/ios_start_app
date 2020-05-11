@@ -11,11 +11,12 @@
 #import "GTDetailViewController.h"
 #import "GTDeleteCellView.h"
 #import "GTListLoader.h"
+#import "GTListItem.h"
 
 
 @interface GTNewsViewController ()<UITableViewDataSource,UITableViewDelegate,GTNormalTableViewCellDelegate>
 @property (nonatomic, strong, readwrite) UITableView *tableView;
-@property (nonatomic, strong, readwrite) NSMutableArray *dataArray;
+@property (nonatomic, strong, readwrite) NSArray *dataArray;    // 提高性能，使用NSArray，即不可变数组
 @property (nonatomic, strong, readwrite) GTListLoader *listLoader;
 @end
 
@@ -27,10 +28,6 @@
 - (instancetype)init{
   self = [super init];
   if(self){
-      _dataArray = @[].mutableCopy;
-      for (int i = 0; i < 20; i++) {
-          [_dataArray addObject:@(i) ];
-      }
   }
   return self;
 }
@@ -48,7 +45,12 @@
     
     // 创建列表加载数据
     self.listLoader = [[GTListLoader alloc] init];
-    [self.listLoader loadListData];
+    __weak typeof (self) wself = self;
+    [self.listLoader loadListDataWithFinishBlock:^(BOOL success, NSArray<GTListItem *> * _Nonnull dataArray) {
+        __strong typeof (wself) strongSelf = wself;
+        strongSelf.dataArray = dataArray; // 将请求回的数组，赋值给当前数组
+        [strongSelf.tableView reloadData]; // 刷新列表
+    }];
     
     [self.view addSubview:_tableView];
     
@@ -91,7 +93,7 @@
         cell.delegate = self; // 使用自定义声明的delegate
     }
 
-    [cell layoutTableViewCell];
+    [cell layoutTableViewCellWithItem:[self.dataArray objectAtIndex:indexPath.row]];
     
     return cell;
 }
@@ -110,7 +112,8 @@
 
 // 点击Cell之后的事件函数
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    GTDetailViewController *viewController = [[GTDetailViewController alloc] init];
+    GTListItem *item = [self.dataArray objectAtIndex:indexPath.row];
+    GTDetailViewController *viewController = [[GTDetailViewController alloc] initWithUrlString: item.articleUrl];
     
     viewController.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
     // ？？？列表点击后的动画效果还不是很顺滑？？？
@@ -122,25 +125,25 @@
 }
 
 - (void)tableViewCell:(UITableViewCell *)tableViewCell clickDeleteButton:(UIButton *)deleteButton{
-    GTDeleteCellView *deleteView = [[GTDeleteCellView alloc] initWithFrame:self.view.bounds];
-    
-    // 将deleteCellView 的坐标转换到window的坐标中。
-    CGRect rect = [tableViewCell convertRect:deleteButton.frame toView:nil];
-    
-    //处理循环引用
-    __weak typeof (self) wself = self;
-    
-    [deleteView showDeleteViewFromPoint:rect.origin clicBlock:^{
-        __strong typeof (self) strongSelf = wself;
-        
-        // 删除最后一个
-        [strongSelf.dataArray removeLastObject];
-        
-        // 根据table的indexPath 删除tableView
-        // 使用系统自动添加的动画效果
-        [strongSelf.tableView deleteRowsAtIndexPaths:@[[strongSelf.tableView indexPathForCell:tableViewCell]] withRowAnimation: UITableViewRowAnimationAutomatic];
-        
-    }];
+//    GTDeleteCellView *deleteView = [[GTDeleteCellView alloc] initWithFrame:self.view.bounds];
+//
+//    // 将deleteCellView 的坐标转换到window的坐标中。
+//    CGRect rect = [tableViewCell convertRect:deleteButton.frame toView:nil];
+//
+//    //处理循环引用
+//    __weak typeof (self) wself = self;
+//
+//    [deleteView showDeleteViewFromPoint:rect.origin clicBlock:^{
+//        __strong typeof (wself) strongSelf = wself;
+//
+//        // 删除最后一个
+//        [strongSelf.dataArray removeLastObject];
+//
+//        // 根据table的indexPath 删除tableView
+//        // 使用系统自动添加的动画效果
+//        [strongSelf.tableView deleteRowsAtIndexPaths:@[[strongSelf.tableView indexPathForCell:tableViewCell]] withRowAnimation: UITableViewRowAnimationAutomatic];
+//
+//    }];
 }
 
 

@@ -12,6 +12,7 @@
 @interface GTDetailViewController ()<WKNavigationDelegate>
 @property (nonatomic, strong, readwrite) WKWebView *webView;
 @property (nonatomic, strong, readwrite) UIProgressView *progressView;
+@property (nonatomic, strong, readwrite) NSString *articleUrl;
 
 @end
 
@@ -25,16 +26,16 @@
         self.webView.navigationDelegate = self;
         self.webView;
     })];
-    
+
     // webView加载进度条
     [self.view addSubview:({
         self.progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, 20)];
         self.progressView;
     })];
-    
+
     // 加载极客时间的网址
-    [self.webView loadRequest: [NSURLRequest requestWithURL: [NSURL URLWithString:@"https://time.geekbang.org/"]]];
-    
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.articleUrl]]];
+
     // 监听：self.webview
     // 监听者： self
     // 监听属性：estimatedProgress
@@ -44,26 +45,34 @@
 }
 
 // 是否允许加载
-- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
     decisionHandler(WKNavigationActionPolicyAllow); // 允许加载webview
 }
 
 // webView加载结束
-- (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation{
+- (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
     NSLog(@"webView加载结束");
 }
-// 移除监听
--(void) dealloc{
-    [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
 
+// 移除监听
+- (void)dealloc {
+    [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
+}
+
+// 点击列表时，传递详情页URL
+- (instancetype)initWithUrlString:(NSString *)urlString {
+    self = [super init];
+    if (self) {
+        self.articleUrl = urlString;
+    }
+    return self;
 }
 
 // 监听者回调
-- (void)observeValueForKeyPath:(nullable NSString *)keyPath ofObject:(nullable id)object change:(nullable NSDictionary<NSKeyValueChangeKey, id> *)change context:(nullable void *)context{
-    
+- (void)observeValueForKeyPath:(nullable NSString *)keyPath ofObject:(nullable id)object change:(nullable NSDictionary<NSKeyValueChangeKey, id> *)change context:(nullable void *)context {
     // 设置webView进度条状态给progressView
     self.progressView.progress = self.webView.estimatedProgress;
-    
+
     NSLog(@"observeValueForKeyPath");
 }
 
