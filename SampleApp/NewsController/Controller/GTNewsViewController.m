@@ -126,7 +126,7 @@
 
 - (void)tableViewCell:(UITableViewCell *)tableViewCell clickDeleteButton:(UIButton *)deleteButton{
 //    GTDeleteCellView *deleteView = [[GTDeleteCellView alloc] initWithFrame:self.view.bounds];
-//
+
 //    // 将deleteCellView 的坐标转换到window的坐标中。
 //    CGRect rect = [tableViewCell convertRect:deleteButton.frame toView:nil];
 //
