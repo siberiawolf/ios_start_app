@@ -1,6 +1,8 @@
 # SampleApp
 
-2019最新版IOS教程 从零开发一款苹果APP
-https://www.bilibili.com/video/BV1sE411j76j?p=5
+《从0开发一款iOS App —— 手把手带你构建类今日头条的App》
 
-这个系列教程是用Obj-C教学的。非常的系统化。
+课程地址：https://time.geekbang.org/course/intro/169
+
+这个系列教程是用Obj-C教学的，非常的系统化。
+
