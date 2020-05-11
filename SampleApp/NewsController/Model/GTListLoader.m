@@ -57,7 +57,14 @@
                            }
                        });
     }];
+    [self _getSandBoxPath]; // 获取沙盒地址
     [dataTask resume]; // 恢复task(执行task)
+}
+
+/// 获取沙盒地址
+- (void)_getSandBoxPath{
+    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSLog(@"");
 }
 
 @end
