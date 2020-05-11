@@ -63,7 +63,39 @@
 
 /// 获取沙盒地址
 - (void)_getSandBoxPath{
-    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    //
+    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES); // 读取用户缓存目录
+    NSString *cachePath = [pathArray firstObject];
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *dataPath = [cachePath stringByAppendingPathComponent:@"GTData"]; // 准备好一个叫GTData的目录
+    
+    // 1.创建文件夹
+    NSError *createError;
+    [fileManager createDirectoryAtPath:dataPath withIntermediateDirectories:YES attributes:nil error:&createError]; // 创建好GTData文件夹
+    
+    // 2.创建文件
+    NSData *listData = [@"abc" dataUsingEncoding:NSUTF8StringEncoding]; // 使用utf-8进行编码
+    NSString *listDataPath = [dataPath stringByAppendingPathComponent:@"list"]; // 向GTData中创建一个list文件
+    [fileManager createFileAtPath:listDataPath contents:listData attributes:nil];    // 向list文件中写数据
+    
+    // 3.查询文件
+    BOOL fileExit = [fileManager fileExistsAtPath:listDataPath];
+    
+    // 4.删除文件
+//    if(fileExit){
+//        [fileManager removeItemAtPath:listDataPath error:nil];
+//    }
+    
+    // 5.向文件末尾添加内容
+    NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:listDataPath];
+    
+    [fileHandler seekToEndOfFile]; // 向文件最后添加内容
+    [fileHandler writeData:[@"def" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [fileHandler synchronizeFile]; // 立即刷新文件
+    [fileHandler closeFile]; // 关闭文件操作
+    
     NSLog(@"");
 }
 

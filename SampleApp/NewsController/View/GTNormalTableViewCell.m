@@ -112,11 +112,10 @@
     self.timeLabel.frame = CGRectMake(self.commentLabel.frame.origin.x +  self.commentLabel.frame.size.width + 15,  self.timeLabel.frame.origin.y, self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
     [self.timeLabel sizeToFit];
 
-//#warning message
+#warning 优化图片加载
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
 
-//    UIImage *image = [UIImage imageWithData:[NSDate dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
-
-    self.rightImageView.image = [UIImage imageNamed:@"icon.bundle/icon.png"];
+    self.rightImageView.image = image;
 }
 
 // 点击时触发函数
