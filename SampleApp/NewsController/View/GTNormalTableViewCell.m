@@ -97,6 +97,15 @@
 
 // 暴露一个函数，给外部使用
 - (void)layoutTableViewCellWithItem:(GTListItem *)item {
+    
+    BOOL hasRead = [[NSUserDefaults standardUserDefaults ] boolForKey:item.uniqueKey];
+    
+    if(hasRead){    // 文章已读
+        self.titleLabel.textColor = [UIColor lightGrayColor];
+    }else{
+        self.titleLabel.textColor = [UIColor blackColor];
+    }
+    
     self.titleLabel.text = item.title;
 
     self.sourceLabel.text = item.authorName;

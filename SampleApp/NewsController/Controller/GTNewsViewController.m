@@ -122,6 +122,9 @@
     
     [self.navigationController pushViewController:viewController animated:YES];
     
+    // 文章已点击，设置为true，用文章id设置为key
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:item.uniqueKey];
+    
 }
 
 - (void)tableViewCell:(UITableViewCell *)tableViewCell clickDeleteButton:(UIButton *)deleteButton{
