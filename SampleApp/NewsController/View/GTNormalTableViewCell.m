@@ -97,15 +97,14 @@
 
 // 暴露一个函数，给外部使用
 - (void)layoutTableViewCellWithItem:(GTListItem *)item {
-    
     BOOL hasRead = [[NSUserDefaults standardUserDefaults ] boolForKey:item.uniqueKey];
-    
-    if(hasRead){    // 文章已读
+
+    if (hasRead) {   // 文章已读
         self.titleLabel.textColor = [UIColor lightGrayColor];
-    }else{
+    } else {
         self.titleLabel.textColor = [UIColor blackColor];
     }
-    
+
     self.titleLabel.text = item.title;
 
     self.sourceLabel.text = item.authorName;
@@ -121,14 +120,28 @@
     self.timeLabel.frame = CGRectMake(self.commentLabel.frame.origin.x +  self.commentLabel.frame.size.width + 15,  self.timeLabel.frame.origin.y, self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
     [self.timeLabel sizeToFit];
 
+    // 1. 使用NSThread 方式处理线程
     // 将网络请求图片放到单独的线程之中
-    NSThread *downloadImageThread = [[NSThread alloc] initWithBlock:^{
+    /*NSThread *downloadImageThread = [[NSThread alloc] initWithBlock:^{
         UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
         self.rightImageView.image = image;
     }];
-    
+
     downloadImageThread.name = @"downloadImageThread";
     [downloadImageThread start]; // 启动线程
+    */
+    
+    // 2. 使用GCD 线程
+    // 非主线程，对应非主队列
+    dispatch_queue_global_t downloadQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0); // 第二个参数预留参数，第一个参数为非主队列的优先级
+    dispatch_queue_main_t mainQueue = dispatch_get_main_queue(); // 主队列
+    dispatch_async(downloadQueue, ^{    // 非主线程中，处理图片下载任务
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
+        // ***UI图片专门在主线程中进行处理，与图片下载请求线程分离***
+        dispatch_async(mainQueue, ^{    // 主线程中，处理图片渲染
+            self.rightImageView.image = image;
+        });
+    });
     
 }
 
