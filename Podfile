@@ -7,4 +7,5 @@ target 'SampleApp' do
 
   # Pods for SampleApp
   pod 'AFNetworking'
+  pod 'SDWebImage'
 end

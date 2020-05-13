@@ -8,6 +8,7 @@
 
 #import "GTNormalTableViewCell.h"
 #import "GTListItem.h"
+#import "SDWebImage.h"
 
 @interface GTNormalTableViewCell ()
 
@@ -120,7 +121,7 @@
     self.timeLabel.frame = CGRectMake(self.commentLabel.frame.origin.x +  self.commentLabel.frame.size.width + 15,  self.timeLabel.frame.origin.y, self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
     [self.timeLabel sizeToFit];
 
-    // 1. 使用NSThread 方式处理线程
+    // 1. 使用NSThread 方式处理线程（系统自带方式）
     // 将网络请求图片放到单独的线程之中
     /*NSThread *downloadImageThread = [[NSThread alloc] initWithBlock:^{
         UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
@@ -131,17 +132,26 @@
     [downloadImageThread start]; // 启动线程
     */
     
-    // 2. 使用GCD 线程
+    // 2. 使用GCD 线程（系统自带方式）
     // 非主线程，对应非主队列
-    dispatch_queue_global_t downloadQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0); // 第二个参数预留参数，第一个参数为非主队列的优先级
-    dispatch_queue_main_t mainQueue = dispatch_get_main_queue(); // 主队列
-    dispatch_async(downloadQueue, ^{    // 非主线程中，处理图片下载任务
-        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
-        // ***UI图片专门在主线程中进行处理，与图片下载请求线程分离***
-        dispatch_async(mainQueue, ^{    // 主线程中，处理图片渲染
-            self.rightImageView.image = image;
-        });
-    });
+//    dispatch_queue_global_t downloadQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0); // 第二个参数预留参数，第一个参数为非主队列的优先级
+//    dispatch_queue_main_t mainQueue = dispatch_get_main_queue(); // 主队列
+//    dispatch_async(downloadQueue, ^{    // 非主线程中，处理图片下载任务
+//        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
+//        // ***UI图片专门在主线程中进行处理，与图片下载请求线程分离***
+//        dispatch_async(mainQueue, ^{    // 主线程中，处理图片渲染
+//            self.rightImageView.image = image;
+//        });
+//    });
+    
+    // 3. 使用SDWebImage加载图片，会存在占位图（开源系统方式）
+    // 传入图片url，sd内部优先从文件中获取图片
+    // 如果没有，则从网络中获取，然后存储到磁盘中
+    // 一旦获取到了图片，为了提高复用率，会直接保存到系统缓存中，然后从系统缓存中获取
+    // 整个过程结束后，调用completed
+    [self.rightImageView sd_setImageWithURL:[NSURL URLWithString:item.picUrl] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+        NSLog(@"");
+    }];
     
 }
 
