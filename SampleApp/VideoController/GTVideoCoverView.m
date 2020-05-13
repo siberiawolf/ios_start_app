@@ -11,6 +11,10 @@
 
 @interface GTVideoCoverView()
 
+@property (nonatomic, strong, readwrite) AVPlayerItem *videoItem;
+@property (nonatomic, strong, readwrite) AVPlayer *avPlayer;
+@property (nonatomic, strong, readwrite) AVPlayerLayer *playerLayer;
+
 @property (nonatomic, strong, readwrite) UIImageView *coverView;
 @property (nonatomic, strong, readwrite) UIImageView *playButton; // 期望点击整个cell进行播放视频
 @property (nonatomic, copy, readwrite) NSString *videoUrl; // 视频URL
@@ -37,8 +41,18 @@
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_tapToPlay)];
         [self addGestureRecognizer:tapGesture];
         
+        // 视频播放结束
+        // 向消息通知事件中心注册自己
+        [[NSNotificationCenter defaultCenter ] addObserver:self selector:@selector(_handlePlayEnd) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
+        
     }
     return self;
+}
+
+/// 销毁掉事件中心
+- (void)dealloc{    // 单例销毁时移除
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [_videoItem removeObserver:self forKeyPath:@"status"];  // 移除对status变化的监听
 }
 #pragma mark - public method
 - (void)layoutWithVideoCoverUrl:(NSString *)videoCoverUrl videoUrl:(NSString *)videoUrl{
@@ -54,14 +68,34 @@
 -(void)_tapToPlay{
     NSURL *videoURL = [NSURL URLWithString:_videoUrl]; // 资源创建
     AVAsset *asset = [AVAsset assetWithURL:videoURL];
-    AVPlayerItem *videoItem = [AVPlayerItem playerItemWithAsset:asset]; // model创建
-    AVPlayer *avPlayer = [AVPlayer playerWithPlayerItem:videoItem]; // controller创建
-    AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:avPlayer]; // view创建
-    playerLayer.frame = _coverView.bounds; // 设置大小
-    [_coverView.layer addSublayer:playerLayer]; // 向视图中添加layer
-    [avPlayer play];    // 播放
+    _videoItem = [AVPlayerItem playerItemWithAsset:asset]; // model创建
+    // 对playerItem监听status变化
+    [_videoItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];    // 资源加载成功
+    _avPlayer = [AVPlayer playerWithPlayerItem:_videoItem]; // controller创建
+    _playerLayer = [AVPlayerLayer playerLayerWithPlayer:_avPlayer]; // view创建
+    _playerLayer.frame = _coverView.bounds; // 设置大小
+    [_coverView.layer addSublayer:_playerLayer]; // 向视图中添加layer
+    
     
     NSLog(@"");
+}
+
+/// 视频播放结束回调
+-(void)_handlePlayEnd{
+    [_playerLayer removeFromSuperlayer]; // 移除Player
+    _avPlayer = nil; // 将播放器清空
+    _videoItem = nil;
+}
+
+#pragma mark - KVO
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    if([keyPath isEqualToString:@"status"]){ // 监听的是status变化时
+        if(((NSNumber *)[change objectForKey:NSKeyValueChangeNewKey]).integerValue == AVPlayerItemStatusReadyToPlay){ // 当变化的状态为准备好播放时
+            [_avPlayer play];    // 播放
+        }else{
+            NSLog(@"");
+        }
+    }
 }
 
 @end
