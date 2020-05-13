@@ -53,6 +53,7 @@
 - (void)dealloc{    // 单例销毁时移除
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [_videoItem removeObserver:self forKeyPath:@"status"];  // 移除对status变化的监听
+    [_videoItem removeObserver:self forKeyPath:@"loadedTimeRanges"];  // 移除对status变化的监听
 }
 #pragma mark - public method
 - (void)layoutWithVideoCoverUrl:(NSString *)videoCoverUrl videoUrl:(NSString *)videoUrl{
@@ -71,20 +72,30 @@
     _videoItem = [AVPlayerItem playerItemWithAsset:asset]; // model创建
     // 对playerItem监听status变化
     [_videoItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];    // 资源加载成功
+    [_videoItem addObserver:self forKeyPath:@"loadedTimeRanges" options:NSKeyValueObservingOptionNew context:nil];     // 资源缓存进度
+    
+    CMTime duration = _videoItem.duration;
+    CGFloat videoDuration = CMTimeGetSeconds(duration);
+    
     _avPlayer = [AVPlayer playerWithPlayerItem:_videoItem]; // controller创建
+    // 按照每1秒进行回调
+    [_avPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1, 1) queue:dispatch_get_main_queue() usingBlock:^(CMTime time) {
+       NSLog(@"播放进度：%@", @(CMTimeGetSeconds(time))) ;
+    }];
     _playerLayer = [AVPlayerLayer playerLayerWithPlayer:_avPlayer]; // view创建
     _playerLayer.frame = _coverView.bounds; // 设置大小
     [_coverView.layer addSublayer:_playerLayer]; // 向视图中添加layer
-    
     
     NSLog(@"");
 }
 
 /// 视频播放结束回调
 -(void)_handlePlayEnd{
-    [_playerLayer removeFromSuperlayer]; // 移除Player
-    _avPlayer = nil; // 将播放器清空
-    _videoItem = nil;
+//    [_playerLayer removeFromSuperlayer]; // 移除Player
+//    _avPlayer = nil; // 将播放器清空
+//    _videoItem = nil;
+    
+    [_avPlayer seekToTime:CMTimeMake(0, 1)];
 }
 
 #pragma mark - KVO
@@ -95,6 +106,8 @@
         }else{
             NSLog(@"");
         }
+    }else if([keyPath isEqualToString:@"loadedTimeRanges"]){
+        NSLog(@"缓冲：%@", [change objectForKey:NSKeyValueChangeNewKey]);
     }
 }
 
