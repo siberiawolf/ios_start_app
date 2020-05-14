@@ -8,6 +8,7 @@
 
 #import "GTVideoViewController.h"
 #import "GTVideoCoverView.h"
+#import "GTVideoToolbar.h"
 
 @interface GTVideoViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -32,7 +33,7 @@
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.minimumLineSpacing = 10;
     flowLayout.minimumInteritemSpacing = 10;
-    flowLayout.itemSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.width / 16 * 9); // 16:9宽度视频
+    flowLayout.itemSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.width / 16 * 9 + GTVideoToolbarHeight); // 16:9宽度视频
     
     // 创建一个CollectionView需要的两个条件
     // 1. 需要制定一个大小
