@@ -2,25 +2,25 @@
 //  GTVideoToolbar.m
 //  SampleApp
 //
-//  Created by mac on 2020/5/14.
-//  Copyright © 2020 siberiawolf. All rights reserved.
+//  Created by dequanzhu on 2019.
+//  Copyright © 2019 dequanzhu. All rights reserved.
 //
 
 #import "GTVideoToolbar.h"
 
-@interface GTVideoToolbar()
+@interface GTVideoToolbar ()
 
-@property(nonatomic, strong, readwrite) UIImageView *avatorImageView;
-@property(nonatomic, strong, readwrite) UILabel *nickLabel;
+@property (nonatomic, strong, readwrite) UIImageView *avatorImageView;
+@property (nonatomic, strong, readwrite) UILabel *nickLabel;
 
-@property(nonatomic, strong, readwrite) UIImageView *commentImageView;
-@property(nonatomic, strong, readwrite) UILabel *commentLabel;
+@property (nonatomic, strong, readwrite) UIImageView *commentImageView;
+@property (nonatomic, strong, readwrite) UILabel *commentLabel;
 
-@property(nonatomic, strong, readwrite) UIImageView *likeImageView;
-@property(nonatomic, strong, readwrite) UILabel *likeLabel;
+@property (nonatomic, strong, readwrite) UIImageView *likeImageView;
+@property (nonatomic, strong, readwrite) UILabel *likeLabel;
 
-@property(nonatomic, strong, readwrite) UIImageView *shareImageView;
-@property(nonatomic, strong, readwrite) UILabel *shareLabel;
+@property (nonatomic, strong, readwrite) UIImageView *shareImageView;
+@property (nonatomic, strong, readwrite) UILabel *shareLabel;
 
 @end
 
@@ -33,8 +33,8 @@
         self.backgroundColor = [UIColor whiteColor];
 
         [self addSubview:({
-            _avatorImageView = [[UIImageView alloc] initWithFrame:CGRectZero]; // 大小为0
-            _avatorImageView.layer.masksToBounds = YES; // 圆角处理
+            _avatorImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+            _avatorImageView.layer.masksToBounds = YES;
             _avatorImageView.layer.cornerRadius = 15;
             _avatorImageView.translatesAutoresizingMaskIntoConstraints = NO;
             _avatorImageView;
@@ -98,39 +98,92 @@
             _shareLabel;
         })];
 
+        
+//        [self.layer addSublayer:({
+//            CALayer *bottomLine = [[CALayer alloc] init];
+//            bottomLine.frame = CGRectMake(0, frame.size.height - 0.5, SCREEN_WIDTH, 0.5);
+//            bottomLine.backgroundColor = [UIColor lightGrayColor].CGColor;
+//            bottomLine;
+//        })];
     }
     return self;
 }
 
-- (void)layoutWithModel:(id)model{
-    // 设置文字和图标
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    //观察下View的frame
+}
+
+- (void)layoutWithModel:(id)model {
+
     _avatorImageView.image = [UIImage imageNamed:@"icon.bundle/icon.png"];
     _nickLabel.text = @"极客时间";
-//    _commentImageView.image = [UIImage imageNamed:@"icon.bundle/comment.png"];
-//    _commentLabel.text = @"100";
-//    _likeImageView.image = [UIImage imageNamed:@"icon.bundle/praise.png"];
-//    _likeLabel.text = @"25";
-//    _shareImageView.image = [UIImage imageNamed:@"icon.bundle/share.png"];
-//    _shareLabel.text = @"分享";
-    
-    
-    // 使用原生autoLayout进行布局
+
+    _commentImageView.image = [UIImage imageNamed:@"icon.bundle/comment@3x.png"];
+    _commentLabel.text = @"100";
+
+    _likeImageView.image = [UIImage imageNamed:@"icon.bundle/praise@3x.png"];
+    _likeLabel.text = @"25";
+
+    _shareImageView.image = [UIImage imageNamed:@"icon.bundle/share@3x.png"];
+    _shareLabel.text = @"分享";
+
     [NSLayoutConstraint activateConstraints:@[
-        // 纵向布局，居中
-        [NSLayoutConstraint constraintWithItem:_avatorImageView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1 constant:0], // 头像纵向布局
-        // 横向布局，边距15
-        [NSLayoutConstraint constraintWithItem:_avatorImageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1 constant:15], // 头像横向布局
-        // 头像宽度约束
-        [NSLayoutConstraint constraintWithItem:_avatorImageView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:30], // 头像宽度30
-        // 头像高度约束
-        [NSLayoutConstraint constraintWithItem:_avatorImageView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:30], // 头像高度30
-        
-        // 昵称纵向布局，居中
-        [NSLayoutConstraint constraintWithItem:_nickLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1 constant:0], // 昵称纵向布局
-        // 昵称横向布局，边距0
-        [NSLayoutConstraint constraintWithItem:_nickLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:_avatorImageView attribute:NSLayoutAttributeRight multiplier:1 constant:0], // 昵称横向布局，距离头像右侧0
-        
-     ]];
+
+         [NSLayoutConstraint constraintWithItem:_avatorImageView
+                                      attribute:NSLayoutAttributeCenterY
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:self
+                                      attribute:NSLayoutAttributeCenterY
+                                     multiplier:1
+                                       constant:0],
+
+         [NSLayoutConstraint constraintWithItem:_avatorImageView
+                                      attribute:NSLayoutAttributeLeft
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:self
+                                      attribute:NSLayoutAttributeLeft
+                                     multiplier:1
+                                       constant:15],
+
+         [NSLayoutConstraint constraintWithItem:_avatorImageView
+                                      attribute:NSLayoutAttributeWidth
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:nil
+                                      attribute:NSLayoutAttributeNotAnAttribute
+                                     multiplier:1
+                                       constant:30],
+
+         [NSLayoutConstraint constraintWithItem:_avatorImageView
+                                      attribute:NSLayoutAttributeHeight
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:nil
+                                      attribute:NSLayoutAttributeNotAnAttribute
+                                     multiplier:1
+                                       constant:30],
+
+         [NSLayoutConstraint constraintWithItem:_nickLabel
+                                      attribute:NSLayoutAttributeCenterY
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:_avatorImageView
+                                      attribute:NSLayoutAttributeCenterY
+                                     multiplier:1
+                                       constant:0],
+
+         [NSLayoutConstraint constraintWithItem:_nickLabel
+                                      attribute:NSLayoutAttributeLeft
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:_avatorImageView
+                                      attribute:NSLayoutAttributeRight
+                                     multiplier:1
+                                       constant:0],
+
+    ]];
+
+    NSString *vflString = @"H:|-15-[_avatorImageView]-0-[_nickLabel]-(>=0)-[_commentImageView(==_avatorImageView)]-0-[_commentLabel]-15-[_likeImageView(==_avatorImageView)]-0-[_likeLabel]-15-[_shareImageView(==_avatorImageView)]-0-[_shareLabel]-15-|";
+
+    [NSLayoutConstraint activateConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vflString options:NSLayoutFormatAlignAllCenterY metrics:nil views:NSDictionaryOfVariableBindings(_avatorImageView, _nickLabel, _commentImageView, _commentLabel, _likeImageView, _likeLabel, _shareImageView, _shareLabel)]];
+
 }
 
 @end
