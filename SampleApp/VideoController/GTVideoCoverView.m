@@ -96,6 +96,7 @@
 //    _videoItem = nil;
     
     [_avPlayer seekToTime:CMTimeMake(0, 1)];
+    [_avPlayer play];
 }
 
 #pragma mark - KVO
