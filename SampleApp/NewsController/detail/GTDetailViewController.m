@@ -8,6 +8,7 @@
 
 #import "GTDetailViewController.h"
 #import <WebKit/WebKit.h>
+#import "GTScreen.h"
 
 @interface GTDetailViewController ()<WKNavigationDelegate>
 @property (nonatomic, strong, readwrite) WKWebView *webView;
@@ -22,14 +23,14 @@
     [super viewDidLoad];
     [self.view addSubview:({
         // 因为头部会有留海，所以在计算高度时候，需要将头部的高度减去
-        self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, self.view.frame.size.height - 88)];
+        self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, STATUSBARHEIGHT + 44, self.view.frame.size.width, self.view.frame.size.height - STATUSBARHEIGHT - 44)];
         self.webView.navigationDelegate = self;
         self.webView;
     })];
 
     // webView加载进度条
     [self.view addSubview:({
-        self.progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, 20)];
+        self.progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, STATUSBARHEIGHT + 44, self.view.frame.size.width, 20)];
         self.progressView;
     })];
 
@@ -73,7 +74,7 @@
     // 设置webView进度条状态给progressView
     self.progressView.progress = self.webView.estimatedProgress;
 
-    NSLog(@"observeValueForKeyPath");
+//    NSLog(@"observeValueForKeyPath");
 }
 
 @end

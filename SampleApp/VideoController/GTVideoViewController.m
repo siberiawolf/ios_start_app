@@ -39,6 +39,8 @@
     // 1. 需要制定一个大小
     // 2. 需要创建一个collectionViewLayout
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
+    // 禁止系统自动计算statsBar高度，因为老系统中没有这个属性
+    collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever; // ios 11之后添加的属性
     
     // 同样需要指定delegate和dataSource
     collectionView.delegate = self;
