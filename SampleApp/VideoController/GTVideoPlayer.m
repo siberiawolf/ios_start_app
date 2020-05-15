@@ -52,8 +52,6 @@
     // 视频播放结束
     // 向消息通知事件中心注册自己
     [[NSNotificationCenter defaultCenter ] addObserver:self selector:@selector(_handlePlayEnd) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
-
-    NSLog(@"");
 }
 
 #pragma mark - private method
@@ -80,7 +78,7 @@
         if(((NSNumber *)[change objectForKey:NSKeyValueChangeNewKey]).integerValue == AVPlayerItemStatusReadyToPlay){ // 当变化的状态为准备好播放时
             [_avPlayer play];    // 播放
         }else{
-            NSLog(@"");
+            
         }
     }else if([keyPath isEqualToString:@"loadedTimeRanges"]){
         NSLog(@"缓冲：%@", [change objectForKey:NSKeyValueChangeNewKey]);
