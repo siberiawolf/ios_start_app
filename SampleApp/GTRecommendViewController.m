@@ -71,7 +71,13 @@
 
 // 自定义点击事件
 - (void)viewClick{
-    NSLog(@"viewClick");
+    NSURL *urlScheme = [NSURL URLWithString:@"testScheme://"];
+    
+    BOOL canOpenURL = [[UIApplication sharedApplication] canOpenURL:urlScheme];
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"testScheme://"] options:nil completionHandler:^(BOOL success) {
+        NSLog(@"");
+    }];
 }
 
 // 是否需要响应手势函数
