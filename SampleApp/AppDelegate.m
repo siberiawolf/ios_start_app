@@ -10,6 +10,7 @@
 #import "GTNewsViewController.h"
 #import "GTVideoViewController.h"
 #import "GTRecommendViewController.h"
+#import "GTSplashView.h"
 
 @interface AppDelegate ()<UITabBarControllerDelegate>   // 在UITabBarController中有声明
 
@@ -61,6 +62,11 @@
     self.window.rootViewController = navigationController;  // 显示最基本的tabbarController
     [self.window makeKeyAndVisible]; // 让UIWindow显示出来
 
+    [self.window addSubview:({
+        GTSplashView *splashView = [[GTSplashView alloc] initWithFrame:self.window.bounds];
+        splashView;
+    })];
+    
     return YES;
 }
 

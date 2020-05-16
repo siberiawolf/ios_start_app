@@ -19,9 +19,10 @@
 		04AAB69E2456753C004640EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AAB69D2456753C004640EF /* AppDelegate.m */; };
 		04AAB6A42456753C004640EF /* GTNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AAB6A32456753C004640EF /* GTNewsViewController.m */; };
 		04AAB6A92456753E004640EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04AAB6A82456753E004640EF /* Assets.xcassets */; };
-		04AAB6AC2456753E004640EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AAB6AA2456753E004640EF /* LaunchScreen.storyboard */; };
 		04AAB6AF2456753E004640EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AAB6AE2456753E004640EF /* main.m */; };
 		04AB1E62246E3AC5004B8B68 /* GTScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AB1E61246E3AC5004B8B68 /* GTScreen.m */; };
+		04AFE9FB247002F600C8751C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AFE9FA247002F600C8751C /* LaunchScreen.storyboard */; };
+		04AFE9FE2470154500C8751C /* GTSplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AFE9FD2470154500C8751C /* GTSplashView.m */; };
 		04B0D1EC245FB6F00010D679 /* GTNormalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B0D1EB245FB6F00010D679 /* GTNormalTableViewCell.m */; };
 		04C8D86C245869C2002603DB /* icon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04C8D86B245869C2002603DB /* icon.bundle */; };
 		B3D0886F6D20F123E617D923 /* Pods_SampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25814CCFAC7341BFA018B01A /* Pods_SampleApp.framework */; };
@@ -52,11 +53,13 @@
 		04AAB6A22456753C004640EF /* GTNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNewsViewController.h; sourceTree = "<group>"; };
 		04AAB6A32456753C004640EF /* GTNewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNewsViewController.m; sourceTree = "<group>"; };
 		04AAB6A82456753E004640EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		04AAB6AB2456753E004640EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04AAB6AD2456753E004640EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04AAB6AE2456753E004640EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04AB1E60246E3AC5004B8B68 /* GTScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTScreen.h; sourceTree = "<group>"; };
 		04AB1E61246E3AC5004B8B68 /* GTScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTScreen.m; sourceTree = "<group>"; };
+		04AFE9FA247002F600C8751C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../../../../../.Trash/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		04AFE9FC2470154500C8751C /* GTSplashView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTSplashView.h; sourceTree = "<group>"; };
+		04AFE9FD2470154500C8751C /* GTSplashView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTSplashView.m; sourceTree = "<group>"; };
 		04B0D1EA245FB6F00010D679 /* GTNormalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNormalTableViewCell.h; sourceTree = "<group>"; };
 		04B0D1EB245FB6F00010D679 /* GTNormalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNormalTableViewCell.m; sourceTree = "<group>"; };
 		04C8D86B245869C2002603DB /* icon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = icon.bundle; sourceTree = "<group>"; };
@@ -169,14 +172,16 @@
 				049BFBE724655E7800C2A9AF /* NewsController */,
 				04AAB69C2456753C004640EF /* AppDelegate.h */,
 				04AAB69D2456753C004640EF /* AppDelegate.m */,
+				04AFE9FA247002F600C8751C /* LaunchScreen.storyboard */,
 				0468C88E245D72980033F219 /* GTRecommendViewController.h */,
 				0468C88F245D72980033F219 /* GTRecommendViewController.m */,
 				04AAB6A82456753E004640EF /* Assets.xcassets */,
-				04AAB6AA2456753E004640EF /* LaunchScreen.storyboard */,
 				04AAB6AD2456753E004640EF /* Info.plist */,
 				04AAB6AE2456753E004640EF /* main.m */,
 				04AB1E60246E3AC5004B8B68 /* GTScreen.h */,
 				04AB1E61246E3AC5004B8B68 /* GTScreen.m */,
+				04AFE9FC2470154500C8751C /* GTSplashView.h */,
+				04AFE9FD2470154500C8751C /* GTSplashView.m */,
 			);
 			path = SampleApp;
 			sourceTree = "<group>";
@@ -257,8 +262,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04AFE9FB247002F600C8751C /* LaunchScreen.storyboard in Resources */,
 				04C8D86C245869C2002603DB /* icon.bundle in Resources */,
-				04AAB6AC2456753E004640EF /* LaunchScreen.storyboard in Resources */,
 				04AAB6A92456753E004640EF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +327,7 @@
 				04363A52246B93D8003EFB45 /* GTVideoCoverView.m in Sources */,
 				04B0D1EC245FB6F00010D679 /* GTNormalTableViewCell.m in Sources */,
 				0452A91F24662FA800FDFCBD /* GTListLoader.m in Sources */,
+				04AFE9FE2470154500C8751C /* GTSplashView.m in Sources */,
 				0499C7C9246115D40079E82B /* GTDetailViewController.m in Sources */,
 				0468C890245D72980033F219 /* GTRecommendViewController.m in Sources */,
 				04705E8D2463E25800E4F31D /* GTDeleteCellView.m in Sources */,
@@ -330,17 +336,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		04AAB6AA2456753E004640EF /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				04AAB6AB2456753E004640EF /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		04AAB6B02456753E004640EF /* Debug */ = {
@@ -458,6 +453,7 @@
 			baseConfigurationReference = 67223380B97185AAD35DF827 /* Pods-SampleApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5GQM288Q2F;
 				INFOPLIST_FILE = SampleApp/Info.plist;
@@ -476,6 +472,7 @@
 			baseConfigurationReference = 52C76E7660730CA283F718AC /* Pods-SampleApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5GQM288Q2F;
 				INFOPLIST_FILE = SampleApp/Info.plist;
