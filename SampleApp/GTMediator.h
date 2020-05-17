@@ -11,12 +11,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol GTDetailViewControllerProtocol <NSObject>
+
+- (__kindof UIViewController *) detailViewControllerWithUrl:(NSString *)detailUrl;
+
+@end
+
 @interface GTMediator : NSObject
 
-// target action
+// 方案一：target action
 + (__kindof UIViewController *)detailViewControllerWithUrl:(NSString *)detailUrl;
 
-// url scheme
+// 方案二：url scheme
 typedef void(^GTMediatorProcessBlock)(NSDictionary *params);
 
 /// 注册urlScheme
@@ -28,6 +34,10 @@ typedef void(^GTMediatorProcessBlock)(NSDictionary *params);
 /// @param url url地址
 /// @param params url中具体的参数
 + (void)openUrl:(NSString *)url params:(NSDictionary *)params;
+
+// 方案三：protocol class
++ (void)registerProtol:(Protocol *)proto class:(Class)cls;
++ (Class)classForProtol:(Protocol *)proto;
 
 @end
 

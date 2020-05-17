@@ -39,4 +39,14 @@
         block(params);
     }
 }
+
+# pragma mark - protol class
++ (void)registerProtol:(Protocol *)proto class:(Class)cls{
+    if (proto && cls) {
+        [[[self class] mediatorCache] setObject:cls forKey:NSStringFromProtocol(proto)];
+    }
+}
++ (Class)classForProtol:(Protocol *)proto{
+    return [[[self class] mediatorCache] objectForKey:NSStringFromProtocol(proto)];
+}
 @end

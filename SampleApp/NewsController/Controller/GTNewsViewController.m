@@ -108,6 +108,7 @@
 // 点击Cell之后的事件函数
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     GTListItem *item = [self.dataArray objectAtIndex:indexPath.row];
+//     方式一： Target Action
 //    __kindof UIViewController *detailController = [GTMediator detailViewControllerWithUrl:item.articleUrl];
 //    detailController.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
 //     ？？？列表点击后的动画效果还不是很顺滑？？？
@@ -115,8 +116,14 @@
 //    detailController.view.backgroundColor = [UIColor whiteColor];
 //    [self.navigationController pushViewController:detailController animated:YES];
     
+//    方式二：URL Scheme
+//    [GTMediator openUrl:@"detail://" params:@{@"url":item.articleUrl,@"controller":self.navigationController}];
     
-    [GTMediator openUrl:@"detail://" params:@{@"url":item.articleUrl,@"controller":self.navigationController}];
+//    方式三：protocol class
+    Class cls = [GTMediator classForProtol:@protocol(GTDetailViewControllerProtocol)];
+//    [self.navigationController pushViewController:[[cls alloc] detailViewControllerWithUrl:item.articleUrl] animated:YES];
+    [self.navigationController pushViewController:[[cls alloc] detailViewControllerWithUrl:item.articleUrl] animated:YES];
+    
 
     // 文章已点击，设置为true，用文章id设置为key
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:item.uniqueKey];

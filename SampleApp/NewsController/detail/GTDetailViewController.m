@@ -21,14 +21,16 @@
 @implementation GTDetailViewController
 
 + (void)load {
-    [GTMediator registerScheme:@"detail://" processBlock:^(NSDictionary *_Nonnull params) {
-        NSString *url = (NSString *)[params objectForKey:@"url"];
-        UINavigationController *navigationController = (UINavigationController *)[params objectForKey:@"controller"];
-
-        GTDetailViewController *controller = [[GTDetailViewController alloc] initWithUrlString:url];
-        
-        [navigationController pushViewController:controller animated:YES];
-    }];
+//    [GTMediator registerScheme:@"detail://" processBlock:^(NSDictionary *_Nonnull params) {
+//        NSString *url = (NSString *)[params objectForKey:@"url"];
+//        UINavigationController *navigationController = (UINavigationController *)[params objectForKey:@"controller"];
+//
+//        GTDetailViewController *controller = [[GTDetailViewController alloc] initWithUrlString:url];
+//
+//        [navigationController pushViewController:controller animated:YES];
+//    }];
+    
+    [GTMediator registerProtol:@protocol(GTDetailViewControllerProtocol) class:[self class]];  
 }
 
 - (void)viewDidLoad {
