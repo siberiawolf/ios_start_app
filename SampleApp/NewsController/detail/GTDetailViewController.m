@@ -90,5 +90,8 @@
 
 //    NSLog(@"observeValueForKeyPath");
 }
-
+// ***视频里好像没加这句***
+- (__kindof UIViewController *)detailViewControllerWithUrl:(NSString *)detailUrl{
+    return [[[self class] alloc] initWithUrlString:detailUrl];
+}
 @end

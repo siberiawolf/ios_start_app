@@ -121,7 +121,6 @@
     
 //    方式三：protocol class
     Class cls = [GTMediator classForProtol:@protocol(GTDetailViewControllerProtocol)];
-//    [self.navigationController pushViewController:[[cls alloc] detailViewControllerWithUrl:item.articleUrl] animated:YES];
     [self.navigationController pushViewController:[[cls alloc] detailViewControllerWithUrl:item.articleUrl] animated:YES];
     
 
