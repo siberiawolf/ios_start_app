@@ -8,10 +8,10 @@
 
 #import "GTNewsViewController.h"
 #import "GTNormalTableViewCell.h"
-#import "GTDetailViewController.h"
 #import "GTDeleteCellView.h"
 #import "GTListLoader.h"
 #import "GTListItem.h"
+#import "GTMediator.h"
 
 
 @interface GTNewsViewController ()<UITableViewDataSource,UITableViewDelegate,GTNormalTableViewCellDelegate>
@@ -113,14 +113,13 @@
 // 点击Cell之后的事件函数
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     GTListItem *item = [self.dataArray objectAtIndex:indexPath.row];
-    GTDetailViewController *viewController = [[GTDetailViewController alloc] initWithUrlString: item.articleUrl];
-    
-    viewController.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
+    __kindof UIViewController *detailController = [GTMediator detailViewControllerWithUrl:item.articleUrl];
+    detailController.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
     // ？？？列表点击后的动画效果还不是很顺滑？？？
     // backgroundColor这个属性系统默认是nil 不设置其实展示的是UIWindow的颜色。
-    viewController.view.backgroundColor = [UIColor whiteColor];
+    detailController.view.backgroundColor = [UIColor whiteColor];
     
-    [self.navigationController pushViewController:viewController animated:YES];
+    [self.navigationController pushViewController:detailController animated:YES];
     
     // 文章已点击，设置为true，用文章id设置为key
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:item.uniqueKey];
