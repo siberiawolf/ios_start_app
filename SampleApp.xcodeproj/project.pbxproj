@@ -13,6 +13,7 @@
 		0452A91F24662FA800FDFCBD /* GTListLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452A91E24662FA800FDFCBD /* GTListLoader.m */; };
 		0468C890245D72980033F219 /* GTRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468C88F245D72980033F219 /* GTRecommendViewController.m */; };
 		04705E8D2463E25800E4F31D /* GTDeleteCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04705E8C2463E25800E4F31D /* GTDeleteCellView.m */; };
+		047389532470C3B90055BE82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047389522470C3B90055BE82 /* LaunchScreen.storyboard */; };
 		0499C7C9246115D40079E82B /* GTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499C7C8246115D40079E82B /* GTDetailViewController.m */; };
 		04A055AA246CD53A005B3170 /* GTVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A055A9246CD53A005B3170 /* GTVideoPlayer.m */; };
 		04A055AD246CF72F005B3170 /* GTVideoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A055AC246CF72F005B3170 /* GTVideoToolbar.m */; };
@@ -21,7 +22,6 @@
 		04AAB6A92456753E004640EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04AAB6A82456753E004640EF /* Assets.xcassets */; };
 		04AAB6AF2456753E004640EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AAB6AE2456753E004640EF /* main.m */; };
 		04AB1E62246E3AC5004B8B68 /* GTScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AB1E61246E3AC5004B8B68 /* GTScreen.m */; };
-		04AFE9FB247002F600C8751C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04AFE9FA247002F600C8751C /* LaunchScreen.storyboard */; };
 		04AFE9FE2470154500C8751C /* GTSplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AFE9FD2470154500C8751C /* GTSplashView.m */; };
 		04B0D1EC245FB6F00010D679 /* GTNormalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B0D1EB245FB6F00010D679 /* GTNormalTableViewCell.m */; };
 		04C8D86C245869C2002603DB /* icon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04C8D86B245869C2002603DB /* icon.bundle */; };
@@ -41,6 +41,7 @@
 		0468C88F245D72980033F219 /* GTRecommendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTRecommendViewController.m; sourceTree = "<group>"; };
 		04705E8B2463E25800E4F31D /* GTDeleteCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTDeleteCellView.h; sourceTree = "<group>"; };
 		04705E8C2463E25800E4F31D /* GTDeleteCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTDeleteCellView.m; sourceTree = "<group>"; };
+		047389522470C3B90055BE82 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0499C7C7246115D40079E82B /* GTDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTDetailViewController.h; sourceTree = "<group>"; };
 		0499C7C8246115D40079E82B /* GTDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTDetailViewController.m; sourceTree = "<group>"; };
 		04A055A8246CD53A005B3170 /* GTVideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoPlayer.h; sourceTree = "<group>"; };
@@ -57,7 +58,6 @@
 		04AAB6AE2456753E004640EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04AB1E60246E3AC5004B8B68 /* GTScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTScreen.h; sourceTree = "<group>"; };
 		04AB1E61246E3AC5004B8B68 /* GTScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTScreen.m; sourceTree = "<group>"; };
-		04AFE9FA247002F600C8751C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../../../../../.Trash/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04AFE9FC2470154500C8751C /* GTSplashView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTSplashView.h; sourceTree = "<group>"; };
 		04AFE9FD2470154500C8751C /* GTSplashView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTSplashView.m; sourceTree = "<group>"; };
 		04B0D1EA245FB6F00010D679 /* GTNormalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNormalTableViewCell.h; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 				049BFBE724655E7800C2A9AF /* NewsController */,
 				04AAB69C2456753C004640EF /* AppDelegate.h */,
 				04AAB69D2456753C004640EF /* AppDelegate.m */,
-				04AFE9FA247002F600C8751C /* LaunchScreen.storyboard */,
+				047389522470C3B90055BE82 /* LaunchScreen.storyboard */,
 				0468C88E245D72980033F219 /* GTRecommendViewController.h */,
 				0468C88F245D72980033F219 /* GTRecommendViewController.m */,
 				04AAB6A82456753E004640EF /* Assets.xcassets */,
@@ -262,7 +262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04AFE9FB247002F600C8751C /* LaunchScreen.storyboard in Resources */,
+				047389532470C3B90055BE82 /* LaunchScreen.storyboard in Resources */,
 				04C8D86C245869C2002603DB /* icon.bundle in Resources */,
 				04AAB6A92456753E004640EF /* Assets.xcassets in Resources */,
 			);
