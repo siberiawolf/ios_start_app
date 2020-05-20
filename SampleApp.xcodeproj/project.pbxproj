@@ -13,6 +13,7 @@
 		0452A91F24662FA800FDFCBD /* GTListLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452A91E24662FA800FDFCBD /* GTListLoader.m */; };
 		0468C890245D72980033F219 /* GTRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468C88F245D72980033F219 /* GTRecommendViewController.m */; };
 		04705E8D2463E25800E4F31D /* GTDeleteCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04705E8C2463E25800E4F31D /* GTDeleteCellView.m */; };
+		0470BA91247578F700F8058F /* libGTStatic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0470BA8F247578F700F8058F /* libGTStatic.a */; };
 		047389532470C3B90055BE82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047389522470C3B90055BE82 /* LaunchScreen.storyboard */; };
 		047389562470CBE00055BE82 /* GTMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 047389552470CBE00055BE82 /* GTMediator.m */; };
 		0499C7C9246115D40079E82B /* GTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499C7C8246115D40079E82B /* GTDetailViewController.m */; };
@@ -42,6 +43,9 @@
 		0468C88F245D72980033F219 /* GTRecommendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTRecommendViewController.m; sourceTree = "<group>"; };
 		04705E8B2463E25800E4F31D /* GTDeleteCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTDeleteCellView.h; sourceTree = "<group>"; };
 		04705E8C2463E25800E4F31D /* GTDeleteCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTDeleteCellView.m; sourceTree = "<group>"; };
+		0470BA8E247578F700F8058F /* GTStaticTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTStaticTest.h; sourceTree = "<group>"; };
+		0470BA8F247578F700F8058F /* libGTStatic.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGTStatic.a; sourceTree = "<group>"; };
+		0470BA90247578F700F8058F /* GTStatic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTStatic.h; sourceTree = "<group>"; };
 		047389522470C3B90055BE82 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		047389542470CBE00055BE82 /* GTMediator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMediator.h; sourceTree = "<group>"; };
 		047389552470CBE00055BE82 /* GTMediator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTMediator.m; sourceTree = "<group>"; };
@@ -76,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0470BA91247578F700F8058F /* libGTStatic.a in Frameworks */,
 				B3D0886F6D20F123E617D923 /* Pods_SampleApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,6 +123,16 @@
 				04705E8C2463E25800E4F31D /* GTDeleteCellView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		0470BA8D247578A200F8058F /* GTFramework */ = {
+			isa = PBXGroup;
+			children = (
+				0470BA90247578F700F8058F /* GTStatic.h */,
+				0470BA8E247578F700F8058F /* GTStaticTest.h */,
+				0470BA8F247578F700F8058F /* libGTStatic.a */,
+			);
+			path = GTFramework;
 			sourceTree = "<group>";
 		};
 		049BFBE724655E7800C2A9AF /* NewsController */ = {
@@ -170,6 +185,7 @@
 		04AAB69B2456753C004640EF /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				0470BA8D247578A200F8058F /* GTFramework */,
 				04363A4F246B8E2D003EFB45 /* VideoController */,
 				04C8D86B245869C2002603DB /* icon.bundle */,
 				049BFBE724655E7800C2A9AF /* NewsController */,
@@ -467,6 +483,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SampleApp/GTFramework",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.siberiawolf.SampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -485,6 +505,10 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SampleApp/GTFramework",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.siberiawolf.SampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
