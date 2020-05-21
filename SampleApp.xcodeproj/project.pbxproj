@@ -12,6 +12,8 @@
 		0446D887245CF4B600E5AB19 /* GTVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0446D886245CF4B600E5AB19 /* GTVideoViewController.m */; };
 		0452A91F24662FA800FDFCBD /* GTListLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0452A91E24662FA800FDFCBD /* GTListLoader.m */; };
 		0468C890245D72980033F219 /* GTRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0468C88F245D72980033F219 /* GTRecommendViewController.m */; };
+		046D1BCA24761138001B0A54 /* GTFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046D1BC824760EB0001B0A54 /* GTFramework.framework */; };
+		046D1BCB24761138001B0A54 /* GTFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 046D1BC824760EB0001B0A54 /* GTFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		04705E8D2463E25800E4F31D /* GTDeleteCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04705E8C2463E25800E4F31D /* GTDeleteCellView.m */; };
 		0470BA91247578F700F8058F /* libGTStatic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0470BA8F247578F700F8058F /* libGTStatic.a */; };
 		047389532470C3B90055BE82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047389522470C3B90055BE82 /* LaunchScreen.storyboard */; };
@@ -30,6 +32,20 @@
 		B3D0886F6D20F123E617D923 /* Pods_SampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25814CCFAC7341BFA018B01A /* Pods_SampleApp.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		046D1BCC24761138001B0A54 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				046D1BCB24761138001B0A54 /* GTFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		04363A50246B93D8003EFB45 /* GTVideoCoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoCoverView.h; sourceTree = "<group>"; };
 		04363A51246B93D8003EFB45 /* GTVideoCoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoCoverView.m; sourceTree = "<group>"; };
@@ -41,6 +57,7 @@
 		0452A91E24662FA800FDFCBD /* GTListLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTListLoader.m; sourceTree = "<group>"; };
 		0468C88E245D72980033F219 /* GTRecommendViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTRecommendViewController.h; sourceTree = "<group>"; };
 		0468C88F245D72980033F219 /* GTRecommendViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTRecommendViewController.m; sourceTree = "<group>"; };
+		046D1BC824760EB0001B0A54 /* GTFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GTFramework.framework; sourceTree = "<group>"; };
 		04705E8B2463E25800E4F31D /* GTDeleteCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTDeleteCellView.h; sourceTree = "<group>"; };
 		04705E8C2463E25800E4F31D /* GTDeleteCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTDeleteCellView.m; sourceTree = "<group>"; };
 		0470BA8E247578F700F8058F /* GTStaticTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTStaticTest.h; sourceTree = "<group>"; };
@@ -82,6 +99,7 @@
 			files = (
 				0470BA91247578F700F8058F /* libGTStatic.a in Frameworks */,
 				B3D0886F6D20F123E617D923 /* Pods_SampleApp.framework in Frameworks */,
+				046D1BCA24761138001B0A54 /* GTFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +146,7 @@
 		0470BA8D247578A200F8058F /* GTFramework */ = {
 			isa = PBXGroup;
 			children = (
+				046D1BC824760EB0001B0A54 /* GTFramework.framework */,
 				0470BA90247578F700F8058F /* GTStatic.h */,
 				0470BA8E247578F700F8058F /* GTStaticTest.h */,
 				0470BA8F247578F700F8058F /* libGTStatic.a */,
@@ -236,6 +255,7 @@
 				04AAB6962456753C004640EF /* Frameworks */,
 				04AAB6972456753C004640EF /* Resources */,
 				1583BFB46B197DD8C12CB8AC /* [CP] Embed Pods Frameworks */,
+				046D1BCC24761138001B0A54 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -478,6 +498,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5GQM288Q2F;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SampleApp/GTFramework",
+				);
 				INFOPLIST_FILE = SampleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -489,7 +513,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.siberiawolf.SampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -501,6 +525,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5GQM288Q2F;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SampleApp/GTFramework",
+				);
 				INFOPLIST_FILE = SampleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -512,7 +540,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cn.siberiawolf.SampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

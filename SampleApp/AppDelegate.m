@@ -11,7 +11,8 @@
 #import "GTVideoViewController.h"
 #import "GTRecommendViewController.h"
 #import "GTSplashView.h"
-#import "GTStaticTest.h"
+#import "GTStaticTest.h" // 引入静态库
+#import <GTFramework/GTFrameworkTest.h> // 引入动态库
 
 @interface AppDelegate ()<UITabBarControllerDelegate>   // 在UITabBarController中有声明
 
@@ -68,8 +69,11 @@
         splashView;
     })];
     
-    // 使用iOS静态库
-    [[GTStaticTest alloc] init];
+//     使用iOS静态库
+//    [[GTStaticTest alloc] init];
+//    使用iOSFramework动态库
+//    [[GTFrameworkTest alloc] init];
+    
     return YES;
 }
 
