@@ -27,6 +27,13 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        // 将ViewController添加到tabbarController中
+        // 创建4个UIViewController
+    //    UIViewController *controller1 = [[UIViewController alloc] init];
+    //    controller1.view.backgroundColor = [UIColor redColor];
+        self.tabBarItem.title = @"新闻";
+        self.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/page@2x.png"];
+        self.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/page_selected@2x.png"];
     }
     return self;
 }

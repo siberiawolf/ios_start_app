@@ -29,6 +29,7 @@
 		04AFE9FE2470154500C8751C /* GTSplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AFE9FD2470154500C8751C /* GTSplashView.m */; };
 		04B0D1EC245FB6F00010D679 /* GTNormalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B0D1EB245FB6F00010D679 /* GTNormalTableViewCell.m */; };
 		04C8D86C245869C2002603DB /* icon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04C8D86B245869C2002603DB /* icon.bundle */; };
+		04EE3DBD247766FB00522534 /* GTMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EE3DBC247766FB00522534 /* GTMineViewController.m */; };
 		B3D0886F6D20F123E617D923 /* Pods_SampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25814CCFAC7341BFA018B01A /* Pods_SampleApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,8 @@
 		04B0D1EA245FB6F00010D679 /* GTNormalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNormalTableViewCell.h; sourceTree = "<group>"; };
 		04B0D1EB245FB6F00010D679 /* GTNormalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNormalTableViewCell.m; sourceTree = "<group>"; };
 		04C8D86B245869C2002603DB /* icon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = icon.bundle; sourceTree = "<group>"; };
+		04EE3DBB247766FB00522534 /* GTMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMineViewController.h; sourceTree = "<group>"; };
+		04EE3DBC247766FB00522534 /* GTMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTMineViewController.m; sourceTree = "<group>"; };
 		25814CCFAC7341BFA018B01A /* Pods_SampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C76E7660730CA283F718AC /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.release.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
 		67223380B97185AAD35DF827 /* Pods-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.debug.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,6 +122,15 @@
 				04A055AC246CF72F005B3170 /* GTVideoToolbar.m */,
 			);
 			path = VideoController;
+			sourceTree = "<group>";
+		};
+		04380CB82477652900FE4F52 /* Minecontroller */ = {
+			isa = PBXGroup;
+			children = (
+				04EE3DBB247766FB00522534 /* GTMineViewController.h */,
+				04EE3DBC247766FB00522534 /* GTMineViewController.m */,
+			);
+			path = Minecontroller;
 			sourceTree = "<group>";
 		};
 		0439CB10246793480001F173 /* Model */ = {
@@ -204,6 +216,7 @@
 		04AAB69B2456753C004640EF /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				04380CB82477652900FE4F52 /* Minecontroller */,
 				0470BA8D247578A200F8058F /* GTFramework */,
 				04363A4F246B8E2D003EFB45 /* VideoController */,
 				04C8D86B245869C2002603DB /* icon.bundle */,
@@ -372,6 +385,7 @@
 				04AFE9FE2470154500C8751C /* GTSplashView.m in Sources */,
 				0499C7C9246115D40079E82B /* GTDetailViewController.m in Sources */,
 				0468C890245D72980033F219 /* GTRecommendViewController.m in Sources */,
+				04EE3DBD247766FB00522534 /* GTMineViewController.m in Sources */,
 				04705E8D2463E25800E4F31D /* GTDeleteCellView.m in Sources */,
 				0446D887245CF4B600E5AB19 /* GTVideoViewController.m in Sources */,
 			);

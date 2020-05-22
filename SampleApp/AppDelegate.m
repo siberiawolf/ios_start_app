@@ -10,6 +10,7 @@
 #import "GTNewsViewController.h"
 #import "GTVideoViewController.h"
 #import "GTRecommendViewController.h"
+#import "GTMineViewController.h"
 #import "GTSplashView.h"
 #import "GTStaticTest.h" // 引入静态库
 #import <GTFramework/GTFrameworkTest.h> // 引入动态库
@@ -30,28 +31,13 @@
     UITabBarController *tabbarController = [[UITabBarController alloc] init];
 
     // 之前自定义的ViewController
-    GTNewsViewController *newsViewController = [[GTNewsViewController alloc] init];
-
-    // 将ViewController添加到tabbarController中
-    // 创建4个UIViewController
-//    UIViewController *controller1 = [[UIViewController alloc] init];
-//    controller1.view.backgroundColor = [UIColor redColor];
-    newsViewController.tabBarItem.title = @"新闻";
-    newsViewController.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/page@2x.png"];
-    newsViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/page_selected@2x.png"];
-
-    GTVideoViewController *videoController = [[GTVideoViewController alloc] init];  // 自定义流式布局
-
-    GTRecommendViewController *scrollView = [[GTRecommendViewController alloc] init]; // ScrollView
-
-    UIViewController *mimeViewController = [[UIViewController alloc] init];
-    mimeViewController.view.backgroundColor = [UIColor lightGrayColor];
-    mimeViewController.tabBarItem.title = @"我的";
-    mimeViewController.tabBarItem.image = [UIImage imageNamed:@"icon.bundle/home@2x.png"];
-    mimeViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon.bundle/home_selected@2x.png"];
+    GTNewsViewController *newsViewController = [[GTNewsViewController alloc] init]; // 新闻列表
+    GTVideoViewController *videoController = [[GTVideoViewController alloc] init];  // 视频列表
+    GTRecommendViewController *recommendController = [[GTRecommendViewController alloc] init]; // 推荐
+    GTMineViewController *mimeViewController = [[GTMineViewController alloc] init]; // 我的
 
     // 将4个UIViewController添加到UITabBarController中
-    [tabbarController setViewControllers:@[newsViewController, videoController, scrollView, mimeViewController]];
+    [tabbarController setViewControllers:@[newsViewController, videoController, recommendController, mimeViewController]];
     // 底部导航的顺序完全是由堆栈的顺序决定
 
     // 将当前这个类指定为tabbarController的delegate
