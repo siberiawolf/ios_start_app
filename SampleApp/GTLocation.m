@@ -43,13 +43,31 @@
         [self.manager requestWhenInUseAuthorization];   // 请求位置权限
     }
 }
-// 权限改变
+#pragma mark - delegate
+
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
-    if (status == kCLAuthorizationStatusNotDetermined) { // 开启
+    if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
         //
-    }else if(status == kCLAuthorizationStatusDenied){ // 禁用
+        [self.manager startUpdatingLocation];
+        
+    }else if (status == kCLAuthorizationStatusDenied){
         //
     }
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+     didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    
+    //地理信息
+    CLLocation *location = [locations firstObject];
+    
+    CLGeocoder *coder = [[CLGeocoder alloc] init];
+    
+    [coder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        //地标信息
+    }];
+    
+     [self.manager stopUpdatingLocation];
 }
 
 @end
