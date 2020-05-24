@@ -28,6 +28,7 @@
 		04AB1E62246E3AC5004B8B68 /* GTScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AB1E61246E3AC5004B8B68 /* GTScreen.m */; };
 		04AFE9FE2470154500C8751C /* GTSplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AFE9FD2470154500C8751C /* GTSplashView.m */; };
 		04B0D1EC245FB6F00010D679 /* GTNormalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B0D1EB245FB6F00010D679 /* GTNormalTableViewCell.m */; };
+		04C022CA2479FBCA00F5B434 /* GTLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C022C92479FBCA00F5B434 /* GTLocation.m */; };
 		04C8D86C245869C2002603DB /* icon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04C8D86B245869C2002603DB /* icon.bundle */; };
 		04EE3DBD247766FB00522534 /* GTMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EE3DBC247766FB00522534 /* GTMineViewController.m */; };
 		B3D0886F6D20F123E617D923 /* Pods_SampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25814CCFAC7341BFA018B01A /* Pods_SampleApp.framework */; };
@@ -87,6 +88,8 @@
 		04AFE9FD2470154500C8751C /* GTSplashView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTSplashView.m; sourceTree = "<group>"; };
 		04B0D1EA245FB6F00010D679 /* GTNormalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNormalTableViewCell.h; sourceTree = "<group>"; };
 		04B0D1EB245FB6F00010D679 /* GTNormalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNormalTableViewCell.m; sourceTree = "<group>"; };
+		04C022C82479FBCA00F5B434 /* GTLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTLocation.h; sourceTree = "<group>"; };
+		04C022C92479FBCA00F5B434 /* GTLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTLocation.m; sourceTree = "<group>"; };
 		04C8D86B245869C2002603DB /* icon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = icon.bundle; sourceTree = "<group>"; };
 		04EE3DBB247766FB00522534 /* GTMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMineViewController.h; sourceTree = "<group>"; };
 		04EE3DBC247766FB00522534 /* GTMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTMineViewController.m; sourceTree = "<group>"; };
@@ -235,6 +238,8 @@
 				04AFE9FD2470154500C8751C /* GTSplashView.m */,
 				047389542470CBE00055BE82 /* GTMediator.h */,
 				047389552470CBE00055BE82 /* GTMediator.m */,
+				04C022C82479FBCA00F5B434 /* GTLocation.h */,
+				04C022C92479FBCA00F5B434 /* GTLocation.m */,
 			);
 			path = SampleApp;
 			sourceTree = "<group>";
@@ -374,6 +379,7 @@
 				04AB1E62246E3AC5004B8B68 /* GTScreen.m in Sources */,
 				04AAB6A42456753C004640EF /* GTNewsViewController.m in Sources */,
 				04A055AA246CD53A005B3170 /* GTVideoPlayer.m in Sources */,
+				04C022CA2479FBCA00F5B434 /* GTLocation.m in Sources */,
 				04A055AD246CF72F005B3170 /* GTVideoToolbar.m in Sources */,
 				04AAB69E2456753C004640EF /* AppDelegate.m in Sources */,
 				04AAB6AF2456753E004640EF /* main.m in Sources */,
