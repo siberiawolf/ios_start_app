@@ -15,6 +15,7 @@
 #import "GTStaticTest.h" // 引入静态库
 #import <GTFramework/GTFrameworkTest.h> // 引入动态库
 #import "GTLocation.h"
+#import "GTNotification.h"
 
 @interface AppDelegate ()<UITabBarControllerDelegate>   // 在UITabBarController中有声明
 
@@ -62,6 +63,7 @@
 //    [[GTFrameworkTest alloc] init];
     // 检查位置信息
     [[GTLocation locationManager] checkLocationAuthorization];
+    [[GTNotification notificationManager] checkNotificationAuthorization];
     
     return YES;
 }
