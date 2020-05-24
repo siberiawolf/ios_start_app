@@ -19,6 +19,7 @@
 		047389532470C3B90055BE82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047389522470C3B90055BE82 /* LaunchScreen.storyboard */; };
 		047389562470CBE00055BE82 /* GTMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 047389552470CBE00055BE82 /* GTMediator.m */; };
 		049451A3247A52C500B579D8 /* GTNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 049451A2247A52C500B579D8 /* GTNotification.m */; };
+		049451A6247A743D00B579D8 /* ICONBLACK.png in Resources */ = {isa = PBXBuildFile; fileRef = 049451A5247A743D00B579D8 /* ICONBLACK.png */; };
 		0499C7C9246115D40079E82B /* GTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0499C7C8246115D40079E82B /* GTDetailViewController.m */; };
 		04A055AA246CD53A005B3170 /* GTVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A055A9246CD53A005B3170 /* GTVideoPlayer.m */; };
 		04A055AD246CF72F005B3170 /* GTVideoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A055AC246CF72F005B3170 /* GTVideoToolbar.m */; };
@@ -71,6 +72,7 @@
 		047389552470CBE00055BE82 /* GTMediator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTMediator.m; sourceTree = "<group>"; };
 		049451A1247A52C500B579D8 /* GTNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNotification.h; sourceTree = "<group>"; };
 		049451A2247A52C500B579D8 /* GTNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNotification.m; sourceTree = "<group>"; };
+		049451A5247A743D00B579D8 /* ICONBLACK.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ICONBLACK.png; sourceTree = "<group>"; };
 		0499C7C7246115D40079E82B /* GTDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTDetailViewController.h; sourceTree = "<group>"; };
 		0499C7C8246115D40079E82B /* GTDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTDetailViewController.m; sourceTree = "<group>"; };
 		04A055A8246CD53A005B3170 /* GTVideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoPlayer.h; sourceTree = "<group>"; };
@@ -172,6 +174,14 @@
 			path = GTFramework;
 			sourceTree = "<group>";
 		};
+		049451A4247A741800B579D8 /* AlternateIcons */ = {
+			isa = PBXGroup;
+			children = (
+				049451A5247A743D00B579D8 /* ICONBLACK.png */,
+			);
+			path = AlternateIcons;
+			sourceTree = "<group>";
+		};
 		049BFBE724655E7800C2A9AF /* NewsController */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +232,7 @@
 		04AAB69B2456753C004640EF /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				049451A4247A741800B579D8 /* AlternateIcons */,
 				04380CB82477652900FE4F52 /* Minecontroller */,
 				0470BA8D247578A200F8058F /* GTFramework */,
 				04363A4F246B8E2D003EFB45 /* VideoController */,
@@ -328,6 +339,7 @@
 			files = (
 				047389532470C3B90055BE82 /* LaunchScreen.storyboard in Resources */,
 				04C8D86C245869C2002603DB /* icon.bundle in Resources */,
+				049451A6247A743D00B579D8 /* ICONBLACK.png in Resources */,
 				04AAB6A92456753E004640EF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
