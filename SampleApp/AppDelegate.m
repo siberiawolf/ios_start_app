@@ -70,7 +70,7 @@
 
 // delegate需要实现的方法
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
-    NSLog(@"did select delegate");
+    [self _changeIcon];
 }
 #pragma mark -
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
@@ -81,10 +81,18 @@
     
 }
 
-# pragma -
+# pragma mark -
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options{
     
     return YES;
 }
 
+#pragma mark -
+-(void)_changeIcon{ // 动态更改App Icon图标
+    if([UIApplication sharedApplication].supportsAlternateIcons){
+        [[UIApplication sharedApplication] setAlternateIconName:@"ICONBLACK" completionHandler:^(NSError * _Nullable error) {
+            NSLog(@"");
+        }];
+    }
+}
 @end
