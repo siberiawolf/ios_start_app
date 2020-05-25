@@ -33,6 +33,7 @@
 		04B13562247B5C5B00DCD2C8 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04B13561247B5C5B00DCD2C8 /* NotificationCenter.framework */; };
 		04B13566247B5C5B00DCD2C8 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B13565247B5C5B00DCD2C8 /* TodayViewController.m */; };
 		04B1356D247B5C5B00DCD2C8 /* GTToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 04B13560247B5C5B00DCD2C8 /* GTToday.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		04B13574247B6A6600DCD2C8 /* GTSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B13573247B6A6600DCD2C8 /* GTSearchBar.m */; };
 		04C022CA2479FBCA00F5B434 /* GTLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C022C92479FBCA00F5B434 /* GTLocation.m */; };
 		04C8D86C245869C2002603DB /* icon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04C8D86B245869C2002603DB /* icon.bundle */; };
 		04EE3DBD247766FB00522534 /* GTMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EE3DBC247766FB00522534 /* GTMineViewController.m */; };
@@ -122,6 +123,8 @@
 		04B13564247B5C5B00DCD2C8 /* TodayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayViewController.h; sourceTree = "<group>"; };
 		04B13565247B5C5B00DCD2C8 /* TodayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodayViewController.m; sourceTree = "<group>"; };
 		04B1356A247B5C5B00DCD2C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04B13572247B6A6600DCD2C8 /* GTSearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTSearchBar.h; sourceTree = "<group>"; };
+		04B13573247B6A6600DCD2C8 /* GTSearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTSearchBar.m; sourceTree = "<group>"; };
 		04C022C82479FBCA00F5B434 /* GTLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTLocation.h; sourceTree = "<group>"; };
 		04C022C92479FBCA00F5B434 /* GTLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTLocation.m; sourceTree = "<group>"; };
 		04C8D86B245869C2002603DB /* icon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = icon.bundle; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 				04B0D1EB245FB6F00010D679 /* GTNormalTableViewCell.m */,
 				04705E8B2463E25800E4F31D /* GTDeleteCellView.h */,
 				04705E8C2463E25800E4F31D /* GTDeleteCellView.m */,
+				04B13572247B6A6600DCD2C8 /* GTSearchBar.h */,
+				04B13573247B6A6600DCD2C8 /* GTSearchBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -479,6 +484,7 @@
 				04C022CA2479FBCA00F5B434 /* GTLocation.m in Sources */,
 				04A055AD246CF72F005B3170 /* GTVideoToolbar.m in Sources */,
 				04AAB69E2456753C004640EF /* AppDelegate.m in Sources */,
+				04B13574247B6A6600DCD2C8 /* GTSearchBar.m in Sources */,
 				04AAB6AF2456753E004640EF /* main.m in Sources */,
 				0439CB14246794150001F173 /* GTListItem.m in Sources */,
 				047389562470CBE00055BE82 /* GTMediator.m in Sources */,
