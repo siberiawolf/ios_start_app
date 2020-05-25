@@ -34,6 +34,7 @@
 		04B13566247B5C5B00DCD2C8 /* TodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B13565247B5C5B00DCD2C8 /* TodayViewController.m */; };
 		04B1356D247B5C5B00DCD2C8 /* GTToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 04B13560247B5C5B00DCD2C8 /* GTToday.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		04B13574247B6A6600DCD2C8 /* GTSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B13573247B6A6600DCD2C8 /* GTSearchBar.m */; };
+		04B13577247B98FC00DCD2C8 /* GTCommentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B13576247B98FC00DCD2C8 /* GTCommentManager.m */; };
 		04C022CA2479FBCA00F5B434 /* GTLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C022C92479FBCA00F5B434 /* GTLocation.m */; };
 		04C8D86C245869C2002603DB /* icon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04C8D86B245869C2002603DB /* icon.bundle */; };
 		04EE3DBD247766FB00522534 /* GTMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EE3DBC247766FB00522534 /* GTMineViewController.m */; };
@@ -125,6 +126,8 @@
 		04B1356A247B5C5B00DCD2C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04B13572247B6A6600DCD2C8 /* GTSearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTSearchBar.h; sourceTree = "<group>"; };
 		04B13573247B6A6600DCD2C8 /* GTSearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTSearchBar.m; sourceTree = "<group>"; };
+		04B13575247B98FC00DCD2C8 /* GTCommentManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTCommentManager.h; sourceTree = "<group>"; };
+		04B13576247B98FC00DCD2C8 /* GTCommentManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTCommentManager.m; sourceTree = "<group>"; };
 		04C022C82479FBCA00F5B434 /* GTLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTLocation.h; sourceTree = "<group>"; };
 		04C022C92479FBCA00F5B434 /* GTLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTLocation.m; sourceTree = "<group>"; };
 		04C8D86B245869C2002603DB /* icon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = icon.bundle; sourceTree = "<group>"; };
@@ -201,6 +204,8 @@
 				04705E8C2463E25800E4F31D /* GTDeleteCellView.m */,
 				04B13572247B6A6600DCD2C8 /* GTSearchBar.h */,
 				04B13573247B6A6600DCD2C8 /* GTSearchBar.m */,
+				04B13575247B98FC00DCD2C8 /* GTCommentManager.h */,
+				04B13576247B98FC00DCD2C8 /* GTCommentManager.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -496,6 +501,7 @@
 				049451A3247A52C500B579D8 /* GTNotification.m in Sources */,
 				0468C890245D72980033F219 /* GTRecommendViewController.m in Sources */,
 				04EE3DBD247766FB00522534 /* GTMineViewController.m in Sources */,
+				04B13577247B98FC00DCD2C8 /* GTCommentManager.m in Sources */,
 				04705E8D2463E25800E4F31D /* GTDeleteCellView.m in Sources */,
 				0446D887245CF4B600E5AB19 /* GTVideoViewController.m in Sources */,
 			);
