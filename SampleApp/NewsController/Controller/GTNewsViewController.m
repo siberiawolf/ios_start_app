@@ -84,15 +84,15 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
+//    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
     [self.tabBarController.navigationItem setTitleView:({
-//        GTSearchBar *searchBar = [[GTSearchBar alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - UI(20), self.navigationController.navigationBar.bounds.size.height)];
-//        searchBar;
+        GTSearchBar *searchBar = [[GTSearchBar alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - UI(20), self.navigationController.navigationBar.bounds.size.height)];
+        searchBar;
         
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - UI(20), self.navigationController.navigationBar.bounds.size.height)];
-        button.backgroundColor = [UIColor lightGrayColor];
-        [button addTarget:self action:@selector(_showCommentView) forControlEvents:UIControlEventTouchUpInside];
-        button;
+//        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - UI(20), self.navigationController.navigationBar.bounds.size.height)];
+//        button.backgroundColor = [UIColor lightGrayColor];
+//        [button addTarget:self action:@selector(_showCommentView) forControlEvents:UIControlEventTouchUpInside];
+//        button;
     })];
 }
 
