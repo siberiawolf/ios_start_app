@@ -12,8 +12,8 @@
 #import "GTRecommendViewController.h"
 #import "GTMineViewController.h"
 #import "GTSplashView.h"
-#import "GTStaticTest.h" // 引入静态库
-#import <GTFramework/GTFrameworkTest.h> // 引入动态库
+//#import "GTStaticTest.h" // 引入静态库
+//#import <GTFramework/GTFrameworkTest.h> // 引入动态库
 #import "GTLocation.h"
 #import "GTNotification.h"
 
